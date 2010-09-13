@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="5433e52a-8447-4d76-84f8-31f13a6e3d7c" name="brsatrom@BRSATROM1 2010-07-14 14:24:49" runUser="NORTHAMERICA\brsatrom" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="c614c05c-220d-43eb-8170-0fbece45ac3e">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="brsatrom_BRSATROM1 2010-07-14 14_24_49">
+      <DeploymentItem filename="C:\Development\MVC\RazorHelpers\StackOverflow\bin\Debug\StackOverflow.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2010-07-14T14:24:49.2754369-05:00" queuing="2010-07-14T14:24:51.1634369-05:00" start="2010-07-14T14:24:51.3764369-05:00" finish="2010-07-14T14:25:56.9814369-05:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="BRSATROM1" outcome="Error" timestamp="2010-07-14T14:25:56.9754369-05:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="CanObtainUserIdFromName" storage="c:\development\mvc\razorhelpers\razorhelpertests\bin\debug\razorhelpertests.dll" id="2950b7fc-64ab-b33e-3656-c72745a251bc">
+      <Execution id="4fc31480-099c-4ff2-ab18-d71e7faf2eec" />
+      <TestMethod codeBase="C:/Development/MVC/RazorHelpers/RazorHelperTests/bin/Debug/RazorHelperTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="RazorHelperTests.StackOverFlowTests, RazorHelperTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="CanObtainUserIdFromName" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="2950b7fc-64ab-b33e-3656-c72745a251bc" executionId="4fc31480-099c-4ff2-ab18-d71e7faf2eec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="4fc31480-099c-4ff2-ab18-d71e7faf2eec" testId="2950b7fc-64ab-b33e-3656-c72745a251bc" testName="CanObtainUserIdFromName" computerName="BRSATROM1" duration="00:01:05.3620000" startTime="2010-07-14T14:24:51.6174369-05:00" endTime="2010-07-14T14:25:56.9794369-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4fc31480-099c-4ff2-ab18-d71e7faf2eec">
+    </UnitTestResult>
+  </Results>
+</TestRun>

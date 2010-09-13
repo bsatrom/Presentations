@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackOverflow", "StackOverflow\StackOverflow.csproj", "{FD9DAFE6-5763-482E-8E83-22F6D6D9852B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorHelperTests", "RazorHelperTests\RazorHelperTests.csproj", "{9787F0AB-7DFD-4F01-BD9E-45EF18ACA983}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{26791A12-C47D-40E6-8258-EFC2F64DBC2A}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		RazorHelpers.vsmdi = RazorHelpers.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = RazorHelpers.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD9DAFE6-5763-482E-8E83-22F6D6D9852B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD9DAFE6-5763-482E-8E83-22F6D6D9852B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD9DAFE6-5763-482E-8E83-22F6D6D9852B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD9DAFE6-5763-482E-8E83-22F6D6D9852B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9787F0AB-7DFD-4F01-BD9E-45EF18ACA983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9787F0AB-7DFD-4F01-BD9E-45EF18ACA983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9787F0AB-7DFD-4F01-BD9E-45EF18ACA983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9787F0AB-7DFD-4F01-BD9E-45EF18ACA983}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

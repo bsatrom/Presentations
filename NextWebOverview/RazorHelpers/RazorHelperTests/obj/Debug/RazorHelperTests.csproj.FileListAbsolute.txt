@@ -1,0 +1,14 @@
+C:\Development\MVC\RazorHelpers\RazorHelperTests\bin\Debug\RazorHelperTests.dll
+C:\Development\MVC\RazorHelpers\RazorHelperTests\bin\Debug\RazorHelperTests.pdb
+C:\Development\MVC\RazorHelpers\RazorHelperTests\bin\Debug\StackOverflow.dll
+C:\Development\MVC\RazorHelpers\RazorHelperTests\bin\Debug\StackOverflow.pdb
+C:\Development\MVC\RazorHelpers\RazorHelperTests\obj\Debug\ResolveAssemblyReference.cache
+C:\Development\MVC\RazorHelpers\RazorHelperTests\obj\Debug\RazorHelperTests.dll
+C:\Development\MVC\RazorHelpers\RazorHelperTests\obj\Debug\RazorHelperTests.pdb
+C:\Development\NextWebOverview\RazorHelpers\RazorHelperTests\bin\Debug\RazorHelperTests.dll
+C:\Development\NextWebOverview\RazorHelpers\RazorHelperTests\bin\Debug\RazorHelperTests.pdb
+C:\Development\NextWebOverview\RazorHelpers\RazorHelperTests\bin\Debug\StackOverflow.dll
+C:\Development\NextWebOverview\RazorHelpers\RazorHelperTests\bin\Debug\StackOverflow.pdb
+C:\Development\NextWebOverview\RazorHelpers\RazorHelperTests\obj\Debug\ResolveAssemblyReference.cache
+C:\Development\NextWebOverview\RazorHelpers\RazorHelperTests\obj\Debug\RazorHelperTests.dll
+C:\Development\NextWebOverview\RazorHelpers\RazorHelperTests\obj\Debug\RazorHelperTests.pdb

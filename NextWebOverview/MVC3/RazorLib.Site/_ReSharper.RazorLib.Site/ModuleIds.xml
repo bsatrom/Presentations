@@ -1,0 +1,6 @@
+<Modules>
+  <Module PersistentId="31EB97C2-4184-45E1-9EB2-0565A58E2E54" ModuleId="RazorLib.Site" />
+  <Module PersistentId="DC723C59-C54C-4DE3-BA65-84A177C60790" ModuleId="RazorLib.Core" />
+  <Module PersistentId="43967F1E-15E9-4F3A-8F85-57397C9045F6" ModuleId="RazorLib.Infrastructure" />
+  <Module PersistentId="StructureMap, Version=2.6.2.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223" ModuleId="StructureMap" />
+</Modules>

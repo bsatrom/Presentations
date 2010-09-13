@@ -1,0 +1,26 @@
+﻿@{
+	LayoutPage = "~/_Layout.cshtml";
+	PageData["Title"] = "Product";
+
+	var db = Database.Open("SiliconBakeryDB");
+}
+
+<h2>Available Products:</h2>
+<div class="products group">
+	@foreach (var p in db.Query("SELECT * FROM PRODUCT")) {
+		<div class="product">
+			<h3>@p.Name</h3>
+			<img src="@Href("~/Images/"+ p.ImageName)" alt="@p.Name"/>
+			<p>@p.Description</p>
+			<ul class="group">
+				<li class="price">$@string.Format("{0:f}", p.Price)</li>
+				<li class="order">
+					<form action="Order" method="post">
+						<input type="hidden" name="ProductId" value="@p.Id"/>
+						<input type="submit" value="Order Now"/>
+					</form>
+				</li>
+			<ul>
+		</div>
+	}    
+</div>
