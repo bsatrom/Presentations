@@ -1,0 +1,307 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="void" priority="4" />
+      <Item value="Helper`0" priority="6" />
+      <Item value="int" priority="5" />
+      <Item value="private" priority="4" />
+      <Item value="IEnumerable" priority="2" />
+      <Item value="IList" priority="0" />
+      <Item value="_helpers" priority="3" />
+      <Item value="new" priority="15" />
+      <Item value="List&lt;Helper&gt;" priority="0" />
+      <Item value="return" priority="19" />
+      <Item value="prop" priority="16" />
+      <Item value="string" priority="5" />
+      <Item value="public" priority="8" />
+      <Item value="decimal" priority="1" />
+      <Item value="bool" priority="0" />
+      <Item value="h" priority="1" />
+      <Item value="User`0" priority="4" />
+      <Item value="Date" priority="2" />
+      <Item value="DateTime`0" priority="2" />
+      <Item value="ViewModel" priority="2" />
+      <Item value="IHelperRepository`0" priority="0" />
+      <Item value="helperRepository" priority="1" />
+      <Item value="_helperRepository" priority="7" />
+      <Item value="using" priority="2" />
+      <Item value="StructureMap" priority="1" />
+      <Item value="ObjectFactory`0" priority="16" />
+      <Item value="_container" priority="4" />
+      <Item value="serviceType" priority="3" />
+      <Item value="TService`0" priority="5" />
+      <Item value="as" priority="2" />
+      <Item value="typeof" priority="8" />
+      <Item value="instance" priority="0" />
+      <Item value="MvcServiceLocator`0" priority="0" />
+      <Item value="IContainer`0" priority="2" />
+      <Item value="container" priority="12" />
+      <Item value="var" priority="3" />
+      <Item value="StructureMapContainer`0" priority="0" />
+      <Item value="Container`0" priority="0" />
+      <Item value="System" priority="1" />
+      <Item value="CodeDom" priority="0" />
+      <Item value="Web" priority="0" />
+      <Item value="Routing" priority="0" />
+      <Item value="this" priority="0" />
+      <Item value="DefaultControllerFactory`0" priority="0" />
+      <Item value="IControllerFactory`0" priority="2" />
+      <Item value="override" priority="2" />
+      <Item value="c" priority="2" />
+      <Item value="Type`0" priority="0" />
+      <Item value="RegisterCustomControllers`0" priority="0" />
+      <Item value="AccountController`0" priority="0" />
+      <Item value="HomeController`0" priority="0" />
+      <Item value="Helper" priority="0" />
+      <Item value="Name" priority="1" />
+      <Item value="Email" priority="0" />
+      <Item value="Description" priority="0" />
+      <Item value="Rating" priority="3" />
+      <Item value="DllNotFoundException`0" priority="0" />
+      <Item value="NotFound`0" priority="0" />
+      <Item value="HttpNotFound`0" priority="0" />
+      <Item value="statusDescription" priority="0" />
+      <Item value="HttpStatusCodeResult`0" priority="1" />
+      <Item value="StatusCode`0" priority="0" />
+      <Item value="filters" priority="2" />
+      <Item value="RegisterConditionalFilterProvider`0" priority="0" />
+      <Item value="RequestTimingFilter`0" priority="0" />
+      <Item value="ConditionalFilterProvider`0" priority="1" />
+      <Item value="cfp" priority="0" />
+      <Item value="protected" priority="1" />
+      <Item value="IFilterProvider`0" priority="3" />
+      <Item value="provider" priority="1" />
+      <Item value="i" priority="0" />
+      <Item value="a" priority="0" />
+      <Item value="hal" priority="0" />
+      <Item value="HttpContext`0" priority="1" />
+      <Item value="cc" priority="0" />
+      <Item value="AuthorizeAttribute`0" priority="0" />
+      <Item value="ComponentModel" priority="0" />
+      <Item value="Required" priority="1" />
+      <Item value="AllowEmptyStrings" priority="1" />
+      <Item value="false" priority="1" />
+      <Item value="EditableAttribute`0" priority="0" />
+      <Item value="ErrorMessage" priority="2" />
+      <Item value="HelperStatus`0" priority="1" />
+      <Item value="Votes" priority="0" />
+      <Item value="List" priority="1" />
+      <Item value="Comments" priority="0" />
+      <Item value="Comment`0" priority="0" />
+      <Item value="Stack" priority="0" />
+      <Item value="Status" priority="2" />
+      <Item value="Drafted" priority="0" />
+      <Item value="Author" priority="0" />
+      <Item value="user" priority="0" />
+      <Item value="InitHelper`0" priority="0" />
+      <Item value="where" priority="0" />
+      <Item value="T`0" priority="1" />
+      <Item value="value" priority="1" />
+      <Item value="ValidationResult" priority="1" />
+      <Item value="if" priority="4" />
+      <Item value="model" priority="1" />
+      <Item value="ValidationResult`0" priority="1" />
+      <Item value="IPersistentEntity`0" priority="0" />
+      <Item value="null" priority="0" />
+      <Item value="out" priority="0" />
+      <Item value="IValidatableObject`0" priority="0" />
+      <Item value="Draft" priority="0" />
+      <Item value="yield return" priority="0" />
+      <Item value="ModelState" priority="1" />
+      <Item value="Details`0" priority="1" />
+      <Item value="helper" priority="2" />
+      <Item value="Index`0" priority="0" />
+      <Item value="View`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:RazorLib.Core.Models.Helper">
+      <Item value="Id" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="SingleOrDefault`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IList`1">
+      <Item value="Add`0" priority="0" />
+      <Item value="Remove`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime">
+      <Item value="Now" priority="1" />
+      <Item value="TryParse`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:RazorLib.Core.Repositories.IHelperRepository">
+      <Item value="GetAll`0" priority="0" />
+      <Item value="Get`0" priority="2" />
+      <Item value="Save`0" priority="1" />
+      <Item value="Delete`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@StructureMap.ObjectFactory">
+      <Item value="Initialize`0" priority="1" />
+      <Item value="GetInstance`1" priority="6" />
+      <Item value="GetAllInstances`1" priority="1" />
+      <Item value="GetNamedInstance`1" priority="1" />
+      <Item value="EjectAllInstancesOf`1" priority="0" />
+      <Item value="ForObject`0" priority="0" />
+      <Item value="ForGenericType`0" priority="0" />
+      <Item value="Container" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.CloseGenericTypeExpression">
+      <Item value="SafeDispose`0" priority="1" />
+      <Item value="GetAllClosedTypesOf`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="SafeDispose`0" priority="0" />
+      <Item value="ToString`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.Mvc.MvcServiceLocator">
+      <Item value="SetCurrent`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.IContainer">
+      <Item value="Configure`0" priority="3" />
+      <Item value="GetInstance`1" priority="2" />
+      <Item value="ForObject`0" priority="0" />
+      <Item value="Inject`0" priority="4" />
+      <Item value="ForGenericType`0" priority="0" />
+      <Item value="WhatDoIHave`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.ConfigurationExpression">
+      <Item value="AddType`0" priority="1" />
+      <Item value="For`0" priority="2" />
+      <Item value="ForConcreteType`1" priority="0" />
+      <Item value="Build`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.GlobalFilterCollection">
+      <Item value="Add`0" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.Configuration.DSL.Registry+BuildWithExpression`1">
+      <Item value="Configure" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.Configuration.DSL.Expressions.GenericFamilyExpression">
+      <Item value="Add`0" priority="0" />
+      <Item value="HttpContextScoped`0" priority="1" />
+      <Item value="Singleton`0" priority="1" />
+      <Item value="OnCreation`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.Pipeline.ObjectInstance">
+      <Item value="Name" priority="0" />
+      <Item value="Named`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:StructureMap.Configuration.DSL.Expressions.CreatePluginFamilyExpression`1">
+      <Item value="OnCreationForAll`0" priority="1" />
+      <Item value="Use`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.HttpContext">
+      <Item value="Current" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpContext">
+      <Item value="Request" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:RazorLib.Infrastructure.Site.ConditionalFilterProvider">
+      <Item value="Add`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ControllerContext">
+      <Item value="RequestContext" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Routing.RequestContext">
+      <Item value="RouteData" priority="1" />
+      <Item value="HttpContext" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Routing.RouteData">
+      <Item value="Route" priority="1" />
+      <Item value="Values" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="ToLower`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:T">
+      <Item value="CreatedDate" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="Date" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.ComponentModel.DataAnnotations.ValidationResult">
+      <Item value="Success" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@RazorLib.Core.Models.HelperStatus">
+      <Item value="Published" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.ModelStateDictionary">
+      <Item value="IsValid" priority="1" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Repositories/f:IHelperRepository.cs" caret="292" fromTop="9" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Views/d:Shared/f:_LogOnPartial.cshtml" caret="262" fromTop="7" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Views/d:Shared/f:_Layout.cshtml" caret="814" fromTop="20" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Views/d:Helpers/f:List.cshtml" caret="596" fromTop="14" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Controllers/f:HomeController.cs" caret="787" fromTop="29" />
+      <File id="43967F1E-15E9-4F3A-8F85-57397C9045F6/d:Site/f:RequestLoggingFilter.cs" caret="40" fromTop="0" />
+      <File id="43967F1E-15E9-4F3A-8F85-57397C9045F6/d:Site/f:RequestTimingFilter.cs" caret="774" fromTop="26" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Views/f:Web.config" caret="275" fromTop="10" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/f:Web.config" caret="464" fromTop="11" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:HelperStatus.cs" caret="85" fromTop="3" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:IPersistentEntity.cs" caret="263" fromTop="8" />
+      <File id="43967F1E-15E9-4F3A-8F85-57397C9045F6/d:Repositories/f:HelperRepository.cs" caret="2105" fromTop="41" />
+      <File id="43967F1E-15E9-4F3A-8F85-57397C9045F6/d:Site/f:ConditionalFilterProvider.cs" caret="657" fromTop="18" />
+      <File id="43967F1E-15E9-4F3A-8F85-57397C9045F6/d:Site/f:StructureMapContainer.cs" caret="1641" fromTop="49" />
+      <File id="43967F1E-15E9-4F3A-8F85-57397C9045F6/d:Site/f:StructureMapControllerFactory.cs" caret="680" fromTop="22" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:Comment.cs" caret="0" fromTop="0" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:Vote.cs" caret="0" fromTop="0" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:User.cs" caret="0" fromTop="0" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Validation/f:DateValidationAttribute.cs" caret="59" fromTop="0" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:Helper.cs" caret="406" fromTop="0" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Views/d:Helpers/f:Create.cshtml" caret="420" fromTop="18" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Controllers/f:HelpersController.cs" caret="340" fromTop="11" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/f:Global.asax.cs" caret="785" fromTop="23" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Validation/f:DateValidationAttribute.cs" caret="609" fromTop="7" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:IPersistentEntity.cs" caret="263" fromTop="8" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Validation/f:DateValidationAttribute.cs" caret="545" fromTop="14" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Validation/f:DateValidationAttribute.cs" caret="404" fromTop="12" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Validation/f:DateValidationAttribute.cs" caret="123" fromTop="5" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:Helper.cs" caret="210" fromTop="7" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:Helper.cs" caret="1497" fromTop="27" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:Helper.cs" caret="94" fromTop="1" />
+      <File id="43967F1E-15E9-4F3A-8F85-57397C9045F6/d:Repositories/f:HelperRepository.cs" caret="0" fromTop="0" />
+      <File id="43967F1E-15E9-4F3A-8F85-57397C9045F6/d:Repositories/f:HelperRepository.cs" caret="913" fromTop="13" />
+      <File id="43967F1E-15E9-4F3A-8F85-57397C9045F6/d:Repositories/f:HelperRepository.cs" caret="1472" fromTop="22" />
+      <File id="43967F1E-15E9-4F3A-8F85-57397C9045F6/d:Repositories/f:HelperRepository.cs" caret="2035" fromTop="27" />
+      <File id="43967F1E-15E9-4F3A-8F85-57397C9045F6/d:Repositories/f:HelperRepository.cs" caret="255" fromTop="8" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Validation/f:DateValidationAttribute.cs" caret="59" fromTop="0" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Controllers/f:HelpersController.cs" caret="648" fromTop="5" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Controllers/f:HelpersController.cs" caret="1172" fromTop="25" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Controllers/f:HelpersController.cs" caret="1255" fromTop="17" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Controllers/f:HelpersController.cs" caret="969" fromTop="7" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Controllers/f:HelpersController.cs" caret="1618" fromTop="17" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Controllers/f:HelpersController.cs" caret="1432" fromTop="23" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Views/d:Helpers/f:Create.cshtml" caret="1352" fromTop="27" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Views/d:Helpers/f:Create.cshtml" caret="1352" fromTop="11" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Views/d:Helpers/f:Create.cshtml" caret="1352" fromTop="17" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/f:Global.asax.cs" caret="1495" fromTop="20" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:Helper.cs" caret="964" fromTop="13" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:Helper.cs" caret="1696" fromTop="26" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:Helper.cs" caret="1412" fromTop="17" />
+      <File id="DC723C59-C54C-4DE3-BA65-84A177C60790/d:Models/f:Helper.cs" caret="406" fromTop="0" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Views/d:Helpers/f:Create.cshtml" caret="1352" fromTop="14" />
+      <File id="31EB97C2-4184-45E1-9EB2-0565A58E2E54/d:Views/d:Helpers/f:Create.cshtml" caret="1352" fromTop="25" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>

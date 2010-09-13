@@ -1,0 +1,17 @@
+﻿@{
+    LayoutPage = "~/_Layout.cshtml";
+    PageData["Title"] = "Order Status!";
+       
+    if (orderId == null){
+        Response.Redirect("~/Products");
+    }
+
+    var db = Database.Open("SiliconBakeryDB");
+    var product = db.QuerySingle("SELECT * FROM [Order] WHERE Id = @0", orderId);
+    var status = db.QuerySingle("SELECT * FROM ProductState WHERE Id = @0", product.StateId);
+}
+<div class="order">
+    <h2>Your order is @status.Name!</h2>
+    <p>Quantity: @product.Quantity</p>
+    <p>Amount: @product.Amount</p>
+</div>

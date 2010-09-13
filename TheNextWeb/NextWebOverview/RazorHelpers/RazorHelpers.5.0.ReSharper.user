@@ -1,0 +1,128 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:FlairTheme.cs" caret="0" fromTop="0" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:User.cs" caret="56" fromTop="1" />
+      <File id="9787F0AB-7DFD-4F01-BD9E-45EF18ACA983/f:StackOverFlowTests.cs" caret="339" fromTop="13" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="651" fromTop="20" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="2515" fromTop="8" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:FlairTheme.cs" caret="36" fromTop="0" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="2515" fromTop="7" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="2515" fromTop="24" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="2515" fromTop="20" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="2515" fromTop="1" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="2515" fromTop="9" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="2515" fromTop="15" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="2515" fromTop="21" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="151" fromTop="2" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="2515" fromTop="11" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="2521" fromTop="20" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:User.cs" caret="45" fromTop="1" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:User.cs" caret="45" fromTop="1" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="1997" fromTop="19" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="1997" fromTop="19" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="1621" fromTop="8" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="1621" fromTop="13" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="2141" fromTop="24" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="1996" fromTop="22" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="1707" fromTop="13" />
+      <File id="9787F0AB-7DFD-4F01-BD9E-45EF18ACA983/f:StackOverFlowTests.cs" caret="409" fromTop="13" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="1621" fromTop="14" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:User.cs" caret="152" fromTop="5" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="709" fromTop="16" />
+      <File id="FD9DAFE6-5763-482E-8E83-22F6D6D9852B/f:StackOverflow.cs" caret="583" fromTop="16" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="string" priority="12" />
+      <Item value="return" priority="3" />
+      <Item value="WebRequest`0" priority="0" />
+      <Item value="username" priority="1" />
+      <Item value="apiEndpoint" priority="0" />
+      <Item value="as" priority="1" />
+      <Item value="HttpWebRequest`0" priority="0" />
+      <Item value="if" priority="1" />
+      <Item value="webResponse" priority="1" />
+      <Item value="jSerialize" priority="0" />
+      <Item value="userData" priority="3" />
+      <Item value="idNameIndex" priority="1" />
+      <Item value="idFieldIndex" priority="0" />
+      <Item value="JavaScriptSerializer" priority="0" />
+      <Item value="serializer" priority="1" />
+      <Item value="typeof" priority="0" />
+      <Item value="public" priority="0" />
+      <Item value="static" priority="0" />
+      <Item value="userDataStream" priority="2" />
+      <Item value="HttpListener`0" priority="0" />
+      <Item value="List" priority="1" />
+      <Item value="x" priority="0" />
+      <Item value="var" priority="0" />
+      <Item value="user" priority="0" />
+      <Item value="User`0" priority="0" />
+      <Item value="JObject`0" priority="0" />
+      <Item value="userJson" priority="0" />
+      <Item value="MemoryStream`0" priority="0" />
+      <Item value="Assert`0" priority="0" />
+      <Item value="StackOverflowException`0" priority="0" />
+      <Item value="StackOverflow" priority="0" />
+      <Item value="Flair`0" priority="0" />
+      <Item value="Customer" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Net.WebRequest">
+      <Item value="Create`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Format`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Remove`0" priority="1" />
+      <Item value="Replace`0" priority="0" />
+      <Item value="Substring`0" priority="0" />
+      <Item value="IndexOf`0" priority="1" />
+      <Item value="Trim`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Script.Serialization.JavaScriptSerializer">
+      <Item value="Deserialize`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:RazorHelpers.StackOverflow.User">
+      <Item value="display_name" priority="0" />
+      <Item value="user_id" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="First`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Newtonsoft.Json.Linq.JObject">
+      <Item value="Parse`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.VisualStudio.TestTools.UnitTesting.Assert">
+      <Item value="AreEqual`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@RazorHelpers.StackOverflow.Flair">
+      <Item value="GetId`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

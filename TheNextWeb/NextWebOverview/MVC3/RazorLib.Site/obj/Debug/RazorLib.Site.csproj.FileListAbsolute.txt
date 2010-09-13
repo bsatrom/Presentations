@@ -1,0 +1,10 @@
+C:\Development\RazorLib\src\RazorLib.Site\bin\RazorLib.Site.dll
+C:\Development\RazorLib\src\RazorLib.Site\bin\RazorLib.Site.pdb
+C:\Development\RazorLib\src\RazorLib.Site\obj\Debug\ResolveAssemblyReference.cache
+C:\Development\RazorLib\src\RazorLib.Site\obj\Debug\RazorLib.Site.dll
+C:\Development\RazorLib\src\RazorLib.Site\obj\Debug\RazorLib.Site.pdb
+C:\Development\RazorLib\src\RazorLib.Site\bin\RazorLib.Core.dll
+C:\Development\RazorLib\src\RazorLib.Site\bin\RazorLib.Infrastructure.dll
+C:\Development\RazorLib\src\RazorLib.Site\bin\RazorLib.Core.pdb
+C:\Development\RazorLib\src\RazorLib.Site\bin\RazorLib.Infrastructure.pdb
+C:\Development\RazorLib\src\RazorLib.Site\bin\StructureMap.dll
