@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HTML5 Audio Demo</title>
+    <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.5.2.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src='js/bootFileAPI.js'></script>
+    <script src="js/binaryajax.js" type="text/javascript"></script>
+    <script src="js/id3.js" type="text/javascript"></script>
+    <script src="js/jquery.qtip-1.0.0-rc3.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <audio id="audio" src="audio/Nirvana-In Bloom.mp3" controls autoplay></audio>
+    <!--<audio id="audio" src="audio/MosDef-History.mp3" controls autoplay></audio>-->
+    <p>
+        <input type="button" id="turnUp" value="Turn it up!" />
+        <input type="button" id="turnDown" value="Turn it down!" />
+    </p>
+    <div id="trackMetadata"></div>
+
+    <script>
+        var audio = $('#audio');
+        audio.muted = true;
+        audio.volume = 0;
+
+        $('#turnUp').click(function () {
+            var vol = audio.volume;
+
+            if (audio.muted) {
+                audio.muted = false;
+            }
+
+            if (vol+.1 < 1) {
+                audio.volume = vol + .1;
+            }
+        });
+
+        $('#turnDown').click(function () {
+            var vol = audio.volume;
+
+            if (vol - .1 > 0) {
+                audio.volume = vol - .1;
+            } else {
+                audio.muted = true;
+            }
+        });
+        
+        if ((typeof FileReader !== "undefined") 
+        || (typeof FileReaderDraft !== "undefined")) {
+            var file = $('#audio').attr('src');
+
+            ID3.loadTags(file, function () {
+                var tags = ID3.getAllTags(file);
+                var trackText = tags.artist + ' :: ' + tags.title + ' <br/>[' + tags.album + ' (' + tags.year + ')]';
+
+                $('#audio').qtip({
+                    content: trackText,
+                    style: {
+                        width: 200,
+                        textAlign: 'center',
+                        name: 'dark',
+                        border: {
+                           width: 7,
+                           radius: 5
+                        },
+                        tip: 'topLeft'
+                    }                    
+                });
+            });
+        }
+    </script>
+</body>
+</html>

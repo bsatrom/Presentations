@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=620">
+    <title>Web Socket Stock Ticker Demo</title>
+    <link rel="stylesheet" href="css/html5demos.css" type="text/css">
+    <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>  
+    <script src="js/json2.js"></script>
+    <script src="js/jquery.slws.js"></script>  
+    <script src="js/h5utils.js"></script>
+<script>
+    function openConnection() {
+        // uses global 'conn' object
+        if (conn.readyState === undefined || conn.readyState > 1) {
+
+            conn = new WebSocketDraft('ws://' + window.location.hostname + ':4502/subscribe?' + $("form").serialize());
+            
+            conn.onopen = function () {
+                state.className = 'success';
+                state.innerHTML = 'Socket open';
+                chat.value = '';
+            };
+
+            conn.onmessage = function (event) {
+                var message = event.data;
+                if (typeof message == 'string') {
+                    log.innerHTML = '<li class="them">' + message.replace(/[<>&]/g, function (m) { return entities[m]; }) + '</li>' + log.innerHTML;
+                } else {
+                    connected.innerHTML = message;
+                }
+            };
+
+            conn.onclose = function (event) {
+                state.className = 'fail';
+                state.innerHTML = 'Socket closed';
+            };
+        }
+    }
+
+    var connected, log, chat, form, state, entities;
+
+    $(document).ready(function () {
+
+        connected = document.getElementById('connected'),
+        log = document.getElementById('log'),
+        chat = document.getElementById('chat'),
+        form = chat.form,
+        conn = {},
+        state = document.getElementById('status'),
+        entities = {
+            '<': '<',
+            '>': '>',
+            '&': '&'
+        };
+
+        $.slws.ready(function () {
+            if (window.WebSocketDraft === undefined) {
+                state.innerHTML = 'Sockets not supported';
+                state.className = 'fail';
+            } else {
+                state.onclick = function () {
+                    if (conn.readyState !== 1) {
+                        conn.close();
+                    }
+                };
+
+                $(form).submit(function (event) {
+                    event.preventDefault();
+
+                    if (conn.readyState !== undefined && conn.readyState < 2) {
+                        conn.close();
+                    }
+
+                    setTimeout(function () {
+                        openConnection();
+                    }, 250);
+
+                });
+            }
+        })
+    });
+</script>
+</head>
+<body>
+    <section id="wrapper">
+    <header>
+      <h1>Web Socket Stock Ticker Demo</h1>
+    </header>
+<style>
+    #chat
+    {
+        width: 97%;
+    }
+    .them
+    {
+        font-weight: bold;
+    }
+    .them:before
+    {
+        content: 'update ';
+        color: #bbb;
+        font-size: 14px;
+    }
+    .you
+    {
+        font-style: italic;
+    }
+    .you:before
+    {
+        content: 'you ';
+        color: #bbb;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    #log
+    {
+        overflow: auto;
+        max-height: 300px;
+        list-style: none;
+        padding: 0; /*  margin: 0;*/
+    }
+    #log li
+    {
+        border-top: 1px solid #ccc;
+        margin: 0;
+        padding: 10px 0;
+    }
+</style>
+<article>
+  <form>
+    <input type="text" id="chat" name="symbol" placeholder="type stock symbol to subscribe to...">
+  </form>
+  <!--<p id="status" class="success">Socket open</p>-->
+  <p id="status" class="fail">Socket closed</p>
+  <p>In this scenario the WebSocket connection is not opened until the HTTP GET query has been submitted. After the initial HTTP request, a WebSocket 
+  connection is negotiated and the server sends back updates every second.</p>
+  <p>To test, type a stock symbol (one of "msft", "ibm", "appl", or "orcl" -- this is a demo!) above and press return. The HTTP request will carry the symbol after which you will receive updates every 1 second.</p>
+  <p>Server is provided by WCF.</p>
+  <ul id="log"></ul>
+</article>
+</body>
+</html>

@@ -1,0 +1,797 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <title>HTML5 Demo Game: Web Socket</title>
+    <link rel="stylesheet" href="css/html5demos.css" type="text/css" />
+    <script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="js/json2.js" type="text/javascript"></script>
+    <script src="js/jquery.slws.js" type="text/javascript"></script>  
+    <script src="js/h5utils.js" type="text/javascript"></script>
+
+<script type="text/jscript">
+    // This is a simple demo game where two browsers communicate through silverlight component using websocket protocol
+    // between client and server. This game makes use of 4 methods for the websocket connection object.
+    // 1) OnOpen() 2) OnClose() and 3) OnMessage() 4) send()
+    // Silverlight websocket's ready() event tries to open the websocket connection between client and service.
+    // 1) if it does not get opened successfully, onClose() gets called on the connection and it gets closed. 
+    // 2) If it opens the websocket connection successfully then onOpen() gets called and websocket connection is opened and
+    //  now connection is ready for sending to and getting messages from the server.
+    // 3) When it receives any message it's OnMessage() event gets invoked.
+    // 4) When it wants to send any message it uses connection.send().
+
+    // This game uses customized messaging between client and service. So when OnMessage() gets called then depending
+    // on the message type client takes action and sends back messages to the server if needs to be sent. 
+    // Please look at the design document to see in more detail about these different messages.
+
+
+
+    // Configurable item start.
+    var GAME_DURATION = 60000;      // Game duration (in milliSeconds).
+    var DOTCYCLE_DURATION = 800;    // Time duration of dot appearance (in milliSeconds). For best experience it should be around 800. Above 800 means very easy to score and below 800 means very difficult to score.
+    var DOT_RADIUS = 10;            // Radius of the dots. (in number of pixels)
+    // Configurable items end.
+
+    // Different UI elements
+    var gameDiv, gameCanvas, choosePlayer, loginText, restartGameUI, result;
+    var ctx, form, state, loginDiv;
+    var gameMessageText = '';
+    var logError = '';
+    var selectorMessageText = '';
+
+    // Whether this client is a master client or a slave client
+    var isMasterClient = false; 
+    var buddyPlayer = '';
+    var dotTimer = 0, drawLineTimer = 0, remainingTimeTimer = 0, gameFinished = false;
+
+    // Keeps track of current mouse positions.
+    var currentX = 0, currentY = 0, mouseMovementCount = 0;
+    
+    // Canvas width and height
+    var WIDTH = 0;
+    var HEIGHT = 0;
+
+    // Keeps track of the other client's mouse position.
+    var lastOtherMousePositionX = currentX, lastOtherMousePositionY = currentY;
+
+    // For scoring purposes
+    var myPoint, buddyPoint;
+    var mScore = 0, bScore = 0;
+
+    // Keeps track of random dot positions.
+    var  dotCenterX = (-1 * DOT_RADIUS), dotCenterY = (-1 * DOT_RADIUS);
+
+    // Different messages.
+    var score = ' score: '
+    var gamefinishMessage = 'Game finished: ';
+    var serverResponseError = 'Server response error.';
+    var playingMessage = 'Now you are playing with ';
+    var loginFailure = 'Log in failure';
+    var restartGameMessage = 'Please start game with another player.';
+    var logoutMessage = 'has logged out.';
+
+    // Wrapper function for sending messages. If connection protocol changes
+    // then probably change will be required only here.  
+    function sendMessage(message) {
+        // First check for the connection state.
+        if (conn.readyState == 1) {
+            conn.send(message);
+        }
+        else {
+            // Go to the first page
+            showLoggedOutState(serverResponseError);
+        }
+    }
+
+    // Ready function.
+    $(document).ready(function () {
+        gameDiv = document.getElementById('gameContainer'),
+        gameCanvas = document.getElementById('canvasElement'),
+        loginText = document.getElementById('loginName'),
+        loginDiv = document.getElementById('logInBox'),
+        gameMessageText = document.getElementById('gameMessage'),
+        logError = document.getElementById('logInError'),
+        myPoint = document.getElementById('myScore'),
+        buddyPoint = document.getElementById('buddyScore'),
+        choosePlayer = document.getElementById('choosePlayerDiv'),
+        restartGameUI = document.getElementById('restartDiv'),
+        result = document.getElementById('finalResult'),
+        selectorMessageText = document.getElementById('SelectPlayerMessage'),
+        form = loginText.form,
+        conn = {},
+        state = document.getElementById('status');
+
+        if (gameCanvas.getContext) {
+            ctx = gameCanvas.getContext('2d');
+        }
+
+        $.slws.ready(function () {
+            if (window.WebSocketDraft === undefined) {
+                state.innerHTML = 'Sockets not supported';
+                state.className = 'fail';
+            } else {
+                state.onclick = function () {
+                    if (conn.readyState !== 1) {
+                        conn.close();
+                        setTimeout(function () {
+                            openConnection();
+                        }, 250);
+                    }
+                };
+                $(form).submit(function (event) {
+                    event.preventDefault();
+
+                    // Send Login:Name message to the server.
+                    sendMessage('Login:' + loginText.value);
+                });
+
+                $(gameCanvas).click(function () {
+                    // Check if current mouse position is with in the current dot circle.
+                    // Equation to check is X**2 + Y**2 <= a**2
+                    // curent mouse position relative to canvas is (currentX, currentY)
+                    // DOT_RADIUS is given and center is (dotCenterX, dotCenterY)
+
+                    if (gameFinished) {
+                        return;
+                    }
+
+                    var num1 = (currentX - dotCenterX) * (currentX - dotCenterX) +
+                                (currentY - dotCenterY) * (currentY - dotCenterY);
+
+                    if (num1 <= DOT_RADIUS * DOT_RADIUS) {
+                        // Reset dot center postions, so that next hit at the same dot should not 
+                        // increment the score again.
+                        dotCenterX = (-1 * DOT_RADIUS); 
+                        dotCenterY = (-1 * DOT_RADIUS);
+
+                        // it is clicked inside the circle, Update the score
+                        mScore = mScore + 1;
+                        myPoint.innerHTML = loginText.value + score + "<span>" + mScore + "</span>";
+
+                        // Now update this score to other client.
+                        sendMessage('UpdateScore:' + mScore);
+                    }
+                });
+
+                openConnection();
+            }
+        })
+    });
+
+    // Copy the mouse positions and dot positions.
+    // Dot/circle Position -> 0 and Mouse position -> 1
+    function copyPosition(position, xPos, yPos) {
+        if (0 == position) {
+            copyDotPosition(xPos, yPos);
+        }
+        else {
+                copyMousePositionOnOtherClient(xPos, yPos);
+        }
+
+        // Copy dot positions.
+        function copyDotPosition(xPos, yPos) {
+            // Reset dot center postions, so that next hit at the disappeared dot
+            // does not increment the score again.
+            dotCenterX = (-1 * DOT_RADIUS);
+            dotCenterY = (-1 * DOT_RADIUS);
+
+            // Clears the canvas first.
+            ctx.fillStyle = "rgba(0,0,0,0.9)";
+            ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+            if (gameFinished) {
+                return;
+            }
+
+            ctx.beginPath();
+            ctx.fillStyle = "rgb(255 ,255 ,255)";
+
+            ctx.arc(xPos, yPos, DOT_RADIUS, 0, 2 * Math.PI, true);
+            dotCenterX = xPos;
+            dotCenterY = yPos;
+
+            ctx.fill();
+        }
+
+        // Copies the mouse position of one client in the other client's canvas.
+        function copyMousePositionOnOtherClient(x, y) {
+            ctx.lineWidth = 4;
+            ctx.lineCap = "round";
+            ctx.beginPath();
+            ctx.moveTo(lastOtherMousePositionX, lastOtherMousePositionY);
+            ctx.lineTo(x, y);
+            ctx.strokeStyle = "rgba(" + "115,115,115" + ", 0.5)";
+            ctx.stroke();
+            lastOtherMousePositionX = x;
+            lastOtherMousePositionY = y;
+        }
+    }
+
+    // Starts the game.
+    function startGame() {
+        var canvasOffset = $(gameCanvas).offset();
+        $(gameCanvas).mousemove(function (e) {
+            if (true == gameFinished) {
+                return;
+            }
+
+            currentX = e.pageX - canvasOffset.left;
+            currentY = e.pageY - canvasOffset.top;
+
+            mouseMovementCount++;
+
+            // since current mouse position changed, send this to the other client.
+            // But it may cause too many messages so trying to make it one third of actual 
+            // mousemove events.
+            if (0 == mouseMovementCount % 2) {
+                sendMessage('SendMousePoint:' + currentX + ';' + currentY);
+                mouseMovementCount = 0;
+            }
+        });
+
+        // Just to make sure if all timers are killed.
+        killTimers();
+        playGame();
+    }
+
+     // Starts the game.
+    function playGame() {
+        var lastX = 0, lastY = 0, count = 0;
+        var r = Math.floor(Math.random() * 255) + 70;
+        var g = Math.floor(Math.random() * 255) + 70;
+        var b = Math.floor(Math.random() * 255) + 70;
+
+        WIDTH = gameCanvas.width;
+        HEIGHT = gameCanvas.height;
+        leftTime = GAME_DURATION;
+
+        // Show the timer.
+        $("#leftTimeMessage").show();
+
+        remainingTimeTimer = setInterval(showLeftTime, 1000);
+        drawLineTimer = setInterval(drawLines, 30);
+
+        // Circle positions are controlled by the master client only.
+        if (isMasterClient) {
+            dotTimer = setInterval(drawDot, DOTCYCLE_DURATION);
+        }
+
+        // Draws the dots on canvas.
+        function drawDot() {
+
+            // Reset dot center postions, so that next hit at the disappeared dot
+            // does not increment the score again.
+            dotCenterX = (-1 * DOT_RADIUS);
+            dotCenterY = (-1 * DOT_RADIUS);
+
+            // Clears the canvas first
+            ctx.fillStyle = "rgba(0,0,0,0.9)";
+            ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+            if (gameFinished) {
+                return;
+            }
+
+            ctx.beginPath();
+            ctx.fillStyle = "rgb(255 ,255 ,255)";
+            var centerX = Math.random() * WIDTH;
+            var centerY = Math.random() * HEIGHT;
+            ctx.arc(centerX, centerY, DOT_RADIUS, 0, 2 * Math.PI, true);
+            dotCenterX = centerX;
+            dotCenterY = centerY;
+
+            if (conn.readyState == 1) {
+                conn.send('SendDotPoint:' + centerX + ';' + centerY);
+            }
+
+            ctx.fill();
+        }
+
+        // Draws the line on a canvas from previous (lastX, lastY) to (x,y).
+        function drawLines() {
+            ctx.lineWidth = 4;
+            ctx.lineCap = "round";
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(currentX, currentY);
+
+            // Change the color
+            if (count++ > 50) {
+                count = 0;
+                r = Math.floor(Math.random() * 255) + 70;
+                g = Math.floor(Math.random() * 255) + 70;
+                b = Math.floor(Math.random() * 255) + 70;
+            }
+
+            ctx.strokeStyle = "rgba(" + r + "," + g + "," + b + ", 1)";
+            ctx.stroke();
+            lastX = currentX;
+            lastY = currentY;
+        }
+    }
+
+    // Shows remaining time in the game.
+    function showLeftTime() {
+        if (false == gameFinished) {
+            $("#leftTimeMessage span").html(leftTime / 1000);
+            if (0 == leftTime && isMasterClient) {
+                gameCleanUp();
+            }
+            else {
+                leftTime = leftTime - 1000;
+            }
+        }
+    }
+
+    // Kill all timers.
+    function killTimers() {
+        if (0 != dotTimer) {
+            clearInterval(dotTimer);
+        }
+
+        if (0 != drawLineTimer) {
+            clearInterval(drawLineTimer);
+        }
+
+        if (0 != remainingTimeTimer) {
+            clearInterval(remainingTimeTimer);
+        }
+    }
+
+    // This function is called once game finishes.
+    function gameCleanUp() {
+        gameMessageText.innerHTML = '';
+        $("#leftTimeMessage span").html('');
+        gameFinished = true;
+        killTimers();
+
+        // Now send the gameComplete to other client
+        sendMessage('GameComplete');
+    }
+
+    // Resets all the data before another game starts.
+    function resetData() {
+        buddyPlayer = '';
+        mouseMovementCount = mScore = bScore = 0;
+        gameFinished = false;
+        currentX = currentY = lastOtherMousePositionX = lastOtherMousePositionY = 0;
+        dotCenterX = (-1 * DOT_RADIUS), dotCenterY = (-1 * DOT_RADIUS);
+        isMasterClient = false;
+        gameMessageText.innerHTML = '';
+        $("#leftTimeMessage span").html('');
+        logError.innerHTML = '';
+        selectorMessageText.innerHTML = '';
+        result.innerHTML = '';
+    }
+
+    // Show initial state.
+    function showLoggedOutState(errorMessage) {
+        gameFinished = true;
+
+        // Basically reset timers
+        killTimers();
+
+        // Make login UI.
+        loginDiv.style.display = 'block';
+
+        restartGameUI.style.display = 'none';
+        gameDiv.style.display = 'none';
+
+        choosePlayer.style.display = 'none';
+
+        resetData();
+        logError.innerHTML = errorMessage;
+    }
+
+    // Show the state where user is logged in and looking at the list of players.
+    function showLoggedInState(errorMessage) {
+        loginDiv.style.display = 'none';
+        restartGameUI.style.display = 'none';
+        gameDiv.style.display = 'none';
+
+        choosePlayer.style.display = 'block';
+
+        resetData();
+
+        if ('' != errorMessage) {
+            selectorMessageText.innerHTML = errorMessage;
+        }
+    }
+
+    // Show the state where game starts on the slave's client's side.
+    function showGameStartState() {
+        choosePlayer.style.display = 'none';
+
+        gameDiv.style.display = 'block';
+        restartGameUI.style.display = 'none';
+
+        // Reset all data as game is starting again.
+        resetData();
+    }
+
+    // Show the state where user restarts the game.
+    function showRestartState() {
+        gameMessageText.innerHTML = '';
+        selectorMessageText.innerHTML = '';
+        var restartGame = document.getElementById('restartButton');
+        restartGameUI.style.display = 'block';
+        $("#leftTimeMessage").hide();
+      
+        $(restartGame).click(function () {
+            showLoggedInState('');
+
+            // First remove all existing child elements inside buddies list.
+            // We need to remove it because if a player is busy playing he/she 
+            // would not get the buddy update messages. So in this case it needs
+            // to send "GetBuddyPlayers" message and gets the fresh buddy list.
+            sendMessage('GetBuddyPlayers');
+        });
+    }
+
+    // Updates the buddy List.
+    // 0 -> populate the list. 
+    // 1 -> add a name to the list.
+    // 2 -> remove a name from the list.
+    function updateBuddyList(names, addOrUpdate) {
+        switch (addOrUpdate) {
+            case 0:
+                populateBuddyList(names);
+                break;
+            case 1:
+                addPlayersToBuddyList(names);
+                break;
+            case 2:
+                removePlayerFromBuddyList(names);
+                break;
+        }
+    }
+
+    // Populate the list after cleeaning up all buddies.
+    function populateBuddyList(buddyNames) {
+        // we always send an empty string.
+        if (buddyNames[0] == '') {
+            selectorMessageText.innerHTML = 'No player is available';
+
+            // Clean up all the buddies first.
+            $("#allBuddies li").remove();
+            return;
+        }
+
+        // Clean up all the buddies first.
+        $("#allBuddies li").remove();
+
+        // Now populate the list with all buddy players.
+        addPlayersToBuddyList(buddyNames);
+    }
+
+    // Adds players to the list. It does not clear the list first.
+    function addPlayersToBuddyList(buddyNames) {
+        for (var i = 0; i < buddyNames.length; i++) {
+
+            // Create and add options in the list.
+            var listElement = document.createElement("li");
+            listElement.setAttribute("id", "player-" + buddyNames[i]);
+            var player = document.createElement("a");
+            player.setAttribute("href", "#");
+            player.innerHTML = buddyNames[i];
+            $(player).click(function (event) {
+                event.preventDefault();
+                var selectedPlayer = this.innerHTML;
+                sendMessage('SelectBuddy:' + selectedPlayer);
+            });
+
+            listElement.appendChild(player);
+            $("#allBuddies").append(listElement);
+
+            // Previous error should not be displayed.
+            selectorMessageText.innerHTML = '';
+        }
+    }
+
+    // Removes a player from the list.
+    function removePlayerFromBuddyList(buddyNames) {
+        for (var index in buddyNames) {
+            $("#player-" + buddyNames[index]).remove();
+        }
+
+        // Now if all players have been removed then show this message.
+        if (0 == $("li").length) {
+            selectorMessageText.innerHTML = 'No player is available';
+        }
+    }
+
+    function openConnection() {
+        // uses global 'conn' object
+        if (conn.readyState === undefined || conn.readyState > 1) {
+            conn = new WebSocketDraft('ws://' + window.location.hostname + ':4502/wsdemogame');
+
+            conn.onopen = function () {
+                state.className = 'success';
+                state.innerHTML = 'Socket open';
+            };
+
+            conn.onmessage = function (event) {
+                var message = event.data;
+
+                var messageParts = message.split(":");
+                var messageResults = {};
+
+                switch (messageParts[0]) {
+                    case 'LoginResponse':
+                        messageResults = messageParts[1].split(';');
+                        logError.innerHTML = '';
+                        if (messageResults[0] == 'Failure') {
+                            switch (messageResults[1]) {
+                                case 'LoginLimitReached':
+                                    logError.innerHTML = loginFailure + ': Already maximum number of allowed users are logged in.';
+                                    break;
+                                case 'LoginNameTaken':
+                                    logError.innerHTML = loginFailure + ': This name is already in use. Please use another name.';
+                                    break;
+                                case 'LoginNameEmpty':
+                                    logError.innerHTML = loginFailure + ': Login name cannot be empty.';
+                                    break;
+                                default:
+                                    logError.innerHTML = loginFailure + '.';
+                                    break;
+                            }
+                        }
+                        else {
+                            // Successful result.
+                            loginDiv.style.display = 'none';
+                            choosePlayer.style.display = 'none';
+                            sendMessage('GetBuddyPlayers');
+                        }
+
+                        break;
+
+                    case 'JoinBuddyList':
+                        if ('block' == choosePlayer.style.display) {
+                            messageResults = messageParts[1].split(';');
+                            updateBuddyList(messageResults, 1);
+                        }
+
+                        break;
+
+                    case 'RemoveFromBuddyList':
+                        if ('block' == choosePlayer.style.display) {
+                            messageResults = messageParts[1].split(';');
+                            updateBuddyList(messageResults, 2);
+                        }
+
+                        break;
+
+                    case 'GetBuddyPlayersResponse':
+                        choosePlayer.style.display = 'block';
+                        messageResults = messageParts[1].split(';');
+                        selectorMessageText.innerHTML = '';
+
+                        updateBuddyList(messageResults, 0);
+
+                        break;
+
+                    case 'SelectBuddyResponse':
+                        messageResults = messageParts[1].split(';');
+                        selectorMessageText.innerHTML = '';
+                        if (messageResults[0] == 'Failure') {
+                            switch (messageResults[1]) {
+                                case 'BusyBuddy':
+                                    selectorMessageText.innerHTML = 'Player ' + messageResults[2] + ' is already playing.';
+                                    break;
+
+                                case 'BuddyExist':
+                                    selectorMessageText.innerHTML = 'You already have a buddy player.';
+                                    break;
+
+                                case 'BuddyDoesNotExist':
+                                    selectorMessageText.innerHTML = 'Player ' + messageResults[2] + ' ' + logoutMessage;
+                                    break;
+
+                                default:
+                                    selectorMessageText.innerHTML = 'Player does not exist.';
+                                    break;
+                            }
+                        }
+                        else {
+                            // Successful result.
+                            choosePlayer.style.display = 'none';
+                        }
+
+                        break;
+
+                    case 'FixedBuddyResponse':
+                        showGameStartState();
+                        isMasterClient = false;
+
+                        messageResults = messageParts[1].split(';');
+                        buddyPlayer = messageResults[0];
+
+                        myPoint.innerHTML = loginText.value + score + "<span>" + mScore + "</span>";
+                        buddyPoint.innerHTML = buddyPlayer + score + "<span>" + bScore + "</span>";
+
+                        sendMessage('UILoadComplete');
+                        gameMessageText.innerHTML = playingMessage + buddyPlayer;
+
+                        break;
+
+                    case 'CompleteUILoad':
+                        gameDiv.style.display = 'block';
+                        isMasterClient = true;
+
+                        // This should be the actual buddyPlayer. Case when player selectes 
+                        // more than one buddy one after another.
+                        buddyPlayer = messageParts[1];
+                        gameMessageText.innerHTML = playingMessage + buddyPlayer;
+
+                        myPoint.innerHTML = loginText.value + score + "<span>" + mScore + "</span>";
+                        buddyPoint.innerHTML = buddyPlayer + score + "<span>" + bScore + "</span>";
+                        startGame();
+                        break;
+
+                    case 'UILoadCompleteResponse':
+                        messageResults = messageParts[1].split(';');
+                        if (messageResults[0] == 'Failure') {
+                            gameMessageText.innerHTML = serverResponseError;
+                            showLoggedInState('');
+                        }
+
+                        startGame();
+                        break;
+
+                    case 'FixDotPoint':
+
+                        var dotPosition = 0;
+                        messageResults = messageParts[1].split(';');
+                        if (messageResults[0] == 'Failure') {
+                            gameMessageText.innerHTML = serverResponseError;
+                            showLoggedInState('');
+                        }
+                        else {
+                            if (!isMasterClient) {
+                                copyPosition(dotPosition, messageResults[0], messageResults[1]);
+                            }
+                        }
+
+                        break;
+
+                    case 'FixMousePoint':
+                        var mousePosition = 1;
+                        messageResults = messageParts[1].split(';');
+                        if (messageResults[0] == 'Failure') {
+                            gameMessageText.innerHTML = serverResponseError;
+                            showLoggedInState('');
+                        }
+                        else {
+                            copyPosition(mousePosition, messageResults[0], messageResults[1]);
+                        }
+
+                        break;
+
+                    case 'SendMousePointResponse':
+                    case 'SendDotPointResponse':
+                    case 'UpdateScoreResponse':
+                        break;
+
+                    case 'FixBuddyScore':
+                        buddyPoint.innerHTML = buddyPlayer + score + messageParts[1];
+                        bScore = messageParts[1];
+                        break;
+
+                    case 'GameComplete':
+                    case 'GameCompleteResponse':
+
+                        // "GameCompleteResponse" is received by the master client.
+                        // "GameComplete" is received by the slave client. 
+                        gameFinished = true;
+
+                        if (0 != remainingTimeTimer) {
+                            clearInterval(remainingTimeTimer);
+                        }
+
+                        if (mScore > bScore) {
+                            result.innerHTML = gamefinishMessage + 'You Won.';
+                        }
+                        else if (mScore < bScore) {
+                            result.innerHTML = gamefinishMessage + 'You lost.';
+                        }
+                        else {
+                            result.innerHTML = gamefinishMessage + 'Match drawn.';
+                        }
+
+                        showRestartState();
+
+                        break;
+                    case 'BuddyDied':
+                        var buddyDiedMessage = 'Player ' + messageParts[1] + ' ' + logoutMessage + ' ' + restartGameMessage;
+
+                        // No points now for hitting the dots.
+                        gameFinished = true;
+
+                        // Basically reset timers
+                        killTimers();
+                        gameMessageText.innerHTML = buddyDiedMessage;
+                        showLoggedInState('');
+
+                        // First remove all existing child elements inside buddies list.
+                        // We need to remove it because if a player is busy playing he/she 
+                        // would not get the buddy update messages. So in this case it needs
+                        // to send "GetBuddyPlayers" message and gets the fresh buddy list.
+                        sendMessage('GetBuddyPlayers');
+                        break;
+                }
+            };
+
+            conn.onclose = function (event) {
+                state.className = 'fail';
+                state.innerHTML = 'Socket closed';
+
+                // Put the logic here for logged out state.
+                showLoggedOutState(serverResponseError);
+            };
+        }
+    }
+
+</script>
+</head>
+
+
+<body>
+
+<header>
+      <h1> Welcome to the Demo Game </h1>
+      <p> 
+          This game uses communication between browsers through a silverlight component. This silverlight component implements the websockets element introduced by HTML5. Game uses HTML, CSS and java script on the browser side. Browser connects to the service running on the server using websocket connection. Try to hit white dots before it goes to another position. For one such hit you will get one point. Let us see who wins.
+       </p>
+</header>
+
+<section>
+    <p id="status" class="fail">Socket not connected.</p>
+       
+    <!-- LOGIN Part -->
+    <div id = "logInBox">
+        <p> To play the game, please login first using your nickname. </p>
+        <form>
+            <input type = "text" id="loginName" />
+            <input type = "submit" id="logInButton"  value = "Log In &raquo;"/>
+            <p id="logInError" class="offline"></p>
+        </form>
+     </div>
+
+    <!-- Playerlist Part -->
+        <div id = "choosePlayerDiv" style="display:none">
+            <h3>Choose a Player</h3>
+            <ul id="allBuddies">
+                <!-- contains players list -->
+            </ul>
+            <p id = "SelectPlayerMessage" class="offline"> </p>
+        </div>
+       
+       <!-- Game Canvas part -->
+       <div id = "gameContainer" style="display:none" align="center">
+          <div id="gameDetails">
+           <p id="gameMessage" class="offline"></p>
+
+           <p id = "myScore"> </p>
+           <p id = "buddyScore"> </p>      
+
+           <p id="leftTimeMessage" class="offline">Remaining time: <span> </span> Seconds</p>
+
+           <div id = "restartDiv" style = "display:none" align = "center">
+               <p id = "restartMessage"> Do you want to play the game again? </p>
+               <input  type = "button" id = "restartButton"  value = "Play again?" />  
+           </div>
+
+           <p id="finalResult" class="online"></p>
+          </div> 
+           
+
+           <canvas id = "canvasElement" width="400" height="500">
+           </canvas>
+
+           <div class="clear"></div>
+           
+       </div>
+</section>
+
+</body>
+</html>

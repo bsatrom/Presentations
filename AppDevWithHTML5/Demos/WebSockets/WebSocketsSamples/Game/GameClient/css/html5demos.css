@@ -1,0 +1,249 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+
+body   
+{
+    font-family: 'Segoe UI' , Verdana, Helvetica, Sans-Serif;
+    font-size: 10pt;
+    height: 100%;
+    background-color: white;
+    color: #424242;
+}
+
+a:link, a:visited
+{
+    color: #034af3;
+}
+
+a:hover
+{
+    color: #1d60ff;
+    text-decoration: none;
+}
+
+a:active
+{
+    color: #034af3;
+}
+
+p
+{
+    margin-bottom: 10px;
+    line-height: 1.6em;
+}
+
+
+/* HEADINGS   
+----------------------------------------------------------*/
+
+
+
+/* MISC  
+----------------------------------------------------------*/
+
+.clear
+{
+    clear: both;
+}
+
+.title
+{
+    display: block;
+    float: left;
+    text-align: left;
+    width: auto;
+}
+
+.loginDisplay
+{
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    padding: 10px;
+    color: White;
+}
+
+.loginDisplay a:link
+{
+    color: white;
+}
+
+.loginDisplay a:visited
+{
+    color: white;
+}
+
+.loginDisplay a:hover
+{
+    color: white;
+}
+
+.failureNotification
+{
+    font-size: 1.2em;
+    color: Red;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.submitButton
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+#status {
+  padding: 5px;
+  color: #fff;
+  background: #ccc;
+  text-align: center;
+  font-style: italic;
+  border-radius: 3px; 
+}
+
+#status.fail {
+  background: #c00;
+}
+
+#status.success {
+  background: #7cbc0a;
+  
+}
+
+#status.offline {
+  background: #c00;
+}
+
+#status.online {
+  background: #0c0;
+}
+#gameContainer
+{
+    width: 900px;
+    margin: 0 auto;
+}
+
+#canvasElement 
+{ 
+    border: 1px solid #000;
+    margin: 0 auto;
+    float: right;
+
+}
+
+#gameDetails 
+{
+    float: left;
+    width: 400px;
+    border: 1px solid #dddddd;
+    background: #eeeeee;
+    padding: 10px;
+    border-radius: 3px; 
+}
+
+header, section 
+{
+    width: 900px;
+    margin: 0 auto;
+  }
+  
+section 
+{
+  text-align: center;  
+}
+
+#loginName 
+{
+  font-size: 1.5em;
+  font-family: Arial, Helvetica, Sans-Serif;
+  color: #666666;
+  padding: 5px;
+  border: 1px solid #cccccc;
+  background: #eeeeee;
+  border-radius: 3px; 
+  vertical-align: middle;
+}
+
+#logInButton, #restartButton
+{
+  border-radius: 3px; 
+  padding: 8px;
+  vertical-align: middle;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: Arial, Helvetica, Sans-Serif;
+  color: #ffffff;
+  cursor: pointer;
+  border: 0px solid #999999;
+  background: #9dd53a; /* old browsers */
+  background: -moz-linear-gradient(top, #9dd53a 0%, #a1d54f 50%, #80c217 51%, #7cbc0a 100%); /* firefox */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9dd53a), color-stop(50%,#a1d54f), color-stop(51%,#80c217), color-stop(100%,#7cbc0a)); /* webkit */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dd53a', endColorstr='#7cbc0a',GradientType=0 ); /* ie */
+}
+
+#logInButton:hover, #restartButton:hover
+{
+  color: #517b05;
+  text-shadow: 1px 1px 1px #c5e38e;
+  filter: dropshadow(color=#c5e38e, offx=1, offy=1); 
+}
+
+#allBuddies 
+{
+  width: 300px;
+  margin: 0 auto;
+  text-align: left;
+  border: 1px solid #dddddd;
+  background: #eeeeee;
+  padding: 10px 10px 10px 30px;
+  border-radius: 3px; 
+}
+
+div div object 
+{
+    
+}
+
+#myScore, #buddyScore 
+{
+    font-size: 2em;
+    margin: 10px 0;
+    }
+    
+#myScore span 
+{
+    color: Red;
+    }
+    
+#buddyScore span 
+{
+    color: #9dd53a;
+    }
+    
+    
+#restartDiv {}
+#restartMessage {}
+
+
+#finalResult, #gameError
+{
+    font-size: 1.2em;
+    font-weight: bold;
+    color: Red;
+}
+
+#leftTimeMessage 
+{
+    font-size: 1.1em;
+    border-top: 1px solid #444444;
+    
+}
+
+#leftTimeMessage span 
+{
+    font-weight: bold;
+    color: #ff0000;
+}

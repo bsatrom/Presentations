@@ -1,0 +1,313 @@
+﻿///////////////////////////////
+//[Semantic Markup]
+
+///////////////////////////////
+// Add Modernizr and rounded corner
+<script type="text/javascript">
+    Modernizr.load({
+		test: Modernizr.borderradius,
+		nope: 'js/jquery.corner.js',
+		callback: function() {
+			$("article").corner();
+			$("figure").corner();
+		}
+	});
+
+	//Pre-Modernizr 2.0
+	//if (!Modernizr.borderradius) {
+    //    $.getScript("js/jquery.corner.js", function () {
+    //        $("article").corner();
+    //    });
+    //}
+</script>
+
+///////////////////////////////
+//[Canvas]
+///////////////////////////////
+// Call Vizualize plugin
+$(document).ready(function () {
+    $('#sales').visualize();                    
+});
+
+///////////////////////////////
+// Use Modernizr
+$(document).ready(function () {
+	var drawChart = function () {
+		$('#sales').visualize({ type: 'area', width: '420px' });
+		$('#sales').hide();
+	}
+
+	Modernizr.load({
+		test: Modernizr.canvas,
+		nope: "js/excanvas.js",
+		complete: function() {
+			drawChart();
+		}
+	});
+
+	//Pre-Modernizr 2.0
+	//if (Modernizr.canvas) {
+	//	drawChart();
+	//} else {
+	//	$.getScript('js/excanvas.js', function () {
+	//		drawChart();
+	//	});
+	//}
+}); 
+///////////////////////////////
+// [SVG]
+///////////////////////////////
+// Add SVG Styles
+<style>
+	svg {
+		padding: 5px;
+		background-color: #CCCCCC;
+		border-radius: 10px;
+		-ms-transform: scale(.75);
+		box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+	}
+			
+	svg:hover {
+		-ms-transform: scale(.9);	
+	}
+	
+	svg#style path {
+		fill: #009933;	    				
+	}
+</style>
+
+///////////////////////////////
+// [Audio and Video]
+///////////////////////////////
+// Add Basic Video Tag
+<video src="video/video.mp4"></video>
+///////////////////////////////
+// Add Extended Video Tag
+<video id='movie'  
+    poster="images/big-buck-bunny_poster.jpg"
+    autoplay 
+    controls
+    loop=true 
+    preload=auto
+    playbackRate="1"
+    width="800">
+        <source src="video/video.mp4" type='video/mp4' /> 
+        <source src="video/video.webm" type='video/webm' /> 
+</video>
+///////////////////////////////
+// Web.config
+<!-- Video -->
+<mimeMap fileExtension=".mp4" mimeType="video/mp4"/>
+<mimeMap fileExtension=".webm" mimeType="video/webm"/>
+///////////////////////////////
+// canPlayType
+<script>
+    var v = document.createElement("video");
+	alert(v.canPlayType('video/mp4'));            
+</script>
+///////////////////////////////
+// canPlayType With Codec
+; codecs="avc1.42E01E, mp4a.40.2"           
+///////////////////////////////
+// JS Manipulation
+<script>
+    var rate = 1;
+    var v = document.getElementById('movie');
+            
+    v.onclick = function() {
+        if(v.paused){
+            v.play();
+            v.playbackRate = rate++;
+        } else {
+            v.pause();
+        }
+    };
+</script> 
+///////////////////////////////
+// Silverlight Fallback
+<object type="application/x-silverlight-2" data="data:application/x-silverlight-2," width="512" height="288">
+    <param name="minRuntimeVersion" value="4.0.50401.0"/>
+    <param name="source" value="http://channel9.msdn.com/scripts/Channel9.xap?v=1.5"/>
+    <param name="initParams" value="mediaurl=http://media.ch9.ms/ch9/06c8/8113d5d7-acc7-4890-affc-9ebe016c06c8/Part8MvcScaffolding_2MB_ch9.wmv,thumbnail=http://media.ch9.ms/ch9/06c8/8113d5d7-acc7-4890-affc-9ebe016c06c8/Part8MvcScaffolding_512_ch9.jpg,deliverymethod=progressivedownload,autoplay=false,entryid=8113d5d7acc74890affc9ebe016c06c8"/>
+</object>
+///////////////////////////////
+// [Geolocation]
+
+///////////////////////////////
+// Bing Map
+<script type="text/javascript">
+	var _map = new Microsoft.Maps.Map(document.getElementById("map"), { credentials: "Aobl4homd3pxwBrWnQNuX25Vna6u25EHc-LJcvzIGPldJLQZdsGq6mk57Aq0ft80" });
+
+	navigator.geolocation.getCurrentPosition(function (position) {
+		var location = new Microsoft.Maps.Location(
+			position.coords.latitude, position.coords.longitude);
+		_map.setView({ zoom: 18, center: location });
+
+		// Add a pushpin to the map representing the current location
+		var pin = new Microsoft.Maps.Pushpin(location);
+		_map.entities.push(pin);
+
+		setDetails(position);
+	}, errorHandler);
+	
+	function errorHandler(e) {
+		if (e === 1) { // PERMISSION_DENIED
+			showFallback();
+		} else { // POSITION_UNAVAILABLE or TIMEOUT
+			swapImage();
+		}
+	}
+
+	function setDetails(position) {
+		$('#lat').text('Latitude: ' + position.coords.latitude);
+		$('#long').text('Longitude: ' + position.coords.longitude);
+		$('#accuracy').text('Accuracy: ' + position.coords.accuracy + ' Meters');
+		$('#geoDetails').fadeIn('slow');
+	}
+
+	function swapImage() {
+		$('#map').hide();
+		$('<img>', {
+			src: 'images/fallbackMap.png'
+		}).appendTo('body');
+	}
+</script>
+///////////////////////////////
+// Geolocation with Fallback
+<script type="text/javascript">
+	try {
+		var _creds = "Aobl4homd3pxwBrWnQNuX25Vna6u25EHc-LJcvzIGPldJLQZdsGq6mk57Aq0ft80";
+		var _map = new Microsoft.Maps.Map(document.getElementById("map"), { credentials: _creds });
+
+		if (Modernizr.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
+				placeLocationOnMap(position.coords.latitude, position.coords.longitude);
+				setDetails(position);
+			}, errorHandler);
+		} else {
+			showFallback();
+		}
+	} catch (e) {
+		swapImage();
+	}
+
+	function errorHandler(e) {
+		if (e === 1) { // PERMISSION_DENIED
+			showFallback();
+		} else { // POSITION_UNAVAILABLE or TIMEOUT
+			swapImage();
+		}
+	}
+
+	function showFallback() {
+		$('#details').show();
+		$('#geoDetails').hide();
+
+		$('#findMe').click(function () {
+			var address = $('#address').val();
+
+			$.getJSON('http://dev.virtualearth.net/REST/v1/Locations?query=' + address + '&key=' + _creds + '&jsonp=?', function (result) {
+				if (result.resourceSets[0].estimatedTotal > 0) {
+					var loc = result.resourceSets[0].resources[0].point.coordinates;
+					placeLocationOnMap(loc[0], loc[1]);
+				}
+				else {
+					alert("sorry that address cannot be found");
+				}
+			});
+		});
+	}
+
+	function placeLocationOnMap(lat, long) {
+		var location = new Microsoft.Maps.Location(lat, long);
+		_map.setView({ zoom: 18, center: location });
+
+		// Add a pushpin to the map representing the current location
+		var pin = new Microsoft.Maps.Pushpin(location);
+		_map.entities.push(pin);
+	}
+
+	function setDetails(position) {
+		$('#lat').text('Latitude: ' + position.coords.latitude);
+		$('#long').text('Longitude: ' + position.coords.longitude);
+		$('#accuracy').text('Accuracy: ' + position.coords.accuracy + ' Meters');
+		$('#geoDetails').fadeIn('slow');
+	}
+
+	function swapImage() {
+		$('#map').hide();
+		$('<img>', {
+			src: 'images/fallbackMap.png'
+		}).appendTo('body');
+	}
+</script>
+///////////////////////////////
+// [Storage]
+
+///////////////////////////////
+// Save preferences
+$('#save').click(function () {
+	window.localStorage.name = $('#name').val();
+	window.localStorage.email = $('#email').val();
+	window.localStorage.color = $('#color').val();
+	window.localStorage.catOrDog = $('#catOrDog').val();
+	window.localStorage.freeform = $('#freeform').val();
+	$('#save').val('Done!');
+	//activateSettings();
+});
+
+///////////////////////////////
+// Check for Preferences
+$('#name').val(window.localStorage.name);
+$('#email').val(window.localStorage.email);
+$('#color').val(window.localStorage.color);
+$('#catOrDog').val(window.localStorage.catOrDog);
+$('#freeform').val(window.localStorage.freeform);
+//activateSettings();
+
+///////////////////////////////
+// Copy in activateSettings and uncomment
+function activateSettings() {
+	if (window.localStorage.color) {
+		$('input').css('background-color', window.localStorage.color);
+	}
+
+	if (window.localStorage.catOrDog) {
+		if (window.localStorage.catOrDog === 'Cats') {
+			$('body').css('background-image', 'url("images/kitty.jpeg")');
+		} else {
+			$('body').css('background-image', 'url("images/dog.jpeg")');
+		}
+		$('body').css('color', 'white');
+	}
+}
+///////////////////////////////
+// [CSS3]
+
+///////////////////////////////
+// Add borderradius for moz and webkit
+-moz-border-radius:10px; 
+-webkit-border-radius:10px;
+///////////////////////////////
+// Negation Selector
+article:not(.odd) {
+	-moz-border-radius:10px; 
+	-webkit-border-radius:10px;
+	border-radius: 10px;
+	background: #CCCC99;
+}
+///////////////////////////////
+// Font-Face
+@font-face
+{
+    font-family: '3DumbRegular';
+    src: local('☺'), url('font/3Dumb-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+        
+article
+{
+    font: 18px/68px '3DumbRegular' , Arial, sans-serif;
+    letter-spacing: 0;
+}

@@ -1,0 +1,759 @@
+﻿/* Media Queries Section of CSS from SweetHatClub.org */
+/* Tablet Layout: 768px.
+ * Gutters: 24px.
+ * Outer margins: 28px.
+ * Inherits styles from: Default Layout.
+ */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+  body {
+    width: 712px;
+    padding: 56px 28px 60px;
+  }
+
+  #global_header {
+    height: 181px;
+  }
+
+  #logo {
+    top: -35px;
+  }
+
+  nav {
+    padding: 0;
+  }
+
+  nav ul {
+    width: 225px;
+  }
+
+  nav li {
+    display: block;
+    margin: 10px 0;
+  }
+
+  nav a {
+    display: block;
+  }
+
+  #search_form {
+    background-position: 100% 0;
+    height: 35px;
+  }
+
+  .callout {
+    margin-top: -10px;
+    width: 205px;
+  }
+
+  .callout:hover {
+    width: 245px;
+  }
+
+  .callout .hold_it {
+    top: 13px;
+  }
+
+  .callout span {
+    display: inline;
+  }
+
+  .callout h3 + span {
+    display: none;
+  }
+
+  #callout_left .hold_it {
+    right: 30px;
+    width: 160px;
+  }
+
+  #callout_right .hold_it {
+    left: 30px;
+    width: 100px;
+  }
+
+  #theme_song {
+    left: 145px;
+  }
+
+  #newest .hat:nth-child(1n+5) {
+    display: none;
+  }
+
+  #newest .hat {
+    margin-right: 0;
+    width: 210px;
+  }
+
+  #newest .img_wrap {
+    height: 210px;
+  }
+
+  #featured .hat {
+    margin-right: 12px;
+    width: 418px;
+  }
+
+  #featured .hat .img_wrap {
+    height: 418px;
+    margin-bottom: 0;
+  }
+
+  .archive .hat,
+  .search .hat,
+  .single aside .hat {
+    width: 137px;
+  }
+
+  .single aside .hat {
+    margin-right: 12px;
+  }
+
+  .single aside .hat:nth-child(5n) {
+    margin-right: 0;
+  }
+
+  .single aside .more a {
+    width: 664px;
+  }
+
+  .single aside .more a:hover {
+    width: 702px;
+  }
+
+  .archive .hat .img_wrap,
+  .search .hat .img_wrap,
+  .single aside .hat .img_wrap {
+    height: 137px;
+  }
+
+  #global_footer span {
+    display: block;
+    line-height: 1.5;
+  }
+
+  #cramerdev {
+    top: 23px;
+  }
+
+  #newest,
+  .more a,
+  .prev a {
+    width: 230px;
+  }
+
+  .more a:hover,
+  .prev a:hover {
+    width: 268px;
+  }
+
+  .page article {
+    float: left;
+    width: 440px;
+  }
+
+  .single article,
+  .single aside {
+    float: none;
+    width: 100%;
+  }
+
+  .join .join_methods {
+    width: 624px;
+  }
+
+  .join .box {
+    width: 250px;
+  }
+
+  .join input,
+  .join .join_button,
+  .join #gform_submit_button_1 {
+    width: 240px;
+  }
+
+  .join #gform_submit_button_1:hover,
+  .join .join_button {
+    width: 255px;
+  }
+
+  .join #your_smokin_ios,
+  .join #your_smokin_ios span {
+    width: 250px;
+  }
+
+}
+
+/* Mobile Layout: 320px.
+ * Gutters: 24px.
+ * Outer margins: 34px.
+ * Inherits styles from: Default Layout.
+ */
+
+@media only screen and (max-width: 767px) {
+
+  body {
+    width: 252px;
+    padding: 32px 34px 60px;
+  }
+
+  #fb_like {
+    display: none;
+  }
+
+  #global_header {
+    height: 155px;
+  }
+
+  h3 span {
+    display: none;
+  }
+
+  nav {
+    margin: 120px 0 12px 0;
+    padding: 0;
+  }
+
+  nav ul {
+    float: none;
+    margin: 0;
+    width: 100%;
+  }
+
+  nav ul:first-child li,
+  nav .first li {
+    margin-bottom: 0;
+  }
+
+  nav li {
+    display: block;
+    margin: 9px 0;
+  }
+
+  nav a {
+    display: block;
+  }
+
+  nav .nomobile {
+    display: none;
+  }
+
+  #logo {
+    background: transparent;
+    margin-left: -90px;
+    top: -170px;
+    width: auto;
+  }
+
+  #logo a {
+    width: 180px;
+  }
+
+  #search_form {
+    background: rgba(0, 0, 0, .9);
+    height: 28px;
+    right: 0;
+    top: 102px;
+    width: 194px;
+    z-index: 5;
+  }
+
+  #search_form input {
+    font-size: 16px;
+  }
+
+  #s {
+    margin-right: 5px;
+    outline: 0;
+    padding: 7px 0 5px 7px;
+    width: 138px;
+  }
+
+  #s_button {
+    background-position: 0 50%;
+    height: 28px;
+    padding: 2px 0 0;
+  }
+
+  .callout {
+    background-position: 50% 0 !important;
+    height: auto;
+    position: static;
+    width: 204px;
+  }
+
+  .callout:hover {
+    width: 204px;
+  }
+
+  .callout .hold_it {
+    display: block;
+    padding: 10px 0;
+    position: static;
+    width: 100%;
+  }
+
+  .callout span {
+    display: none;
+  }
+
+  #callout_left .hold_it {
+    position: static;
+    width: auto;
+  }
+
+  #callout_right {
+    display: none;
+  }
+
+  #newest,
+  #tweet,
+  .more a,
+  .prev a {
+    width: 204px;
+  }
+
+  #sweetest,
+  #message,
+  #fb_comments,
+  #user_social .comment,
+  .hat .meta,
+  .page h2 span,
+  .single h2 span {
+    display: none;
+  }
+
+  h2 {
+    overflow: hidden !important;
+  }
+
+  #newest {
+    float: none;
+  }
+
+  .hat,
+  .archive .hat,
+  .search .hat {
+    padding: 5px;
+    width: 86px;
+  }
+
+  #featured,
+  .single aside {
+    float: none;
+    width: 100%;
+  }
+
+  #featured .hat {
+    float: none;
+    margin-right: 0;
+    width: 194px;
+  }
+
+  #featured .hat .img_wrap {
+    height: 194px;
+    margin-bottom: 0;
+  }
+
+  #user_info,
+  #user_social {
+    float: none;
+    margin: 0 0 12px;
+    width: 180px;
+  }
+
+  .hat:nth-child(odd),
+  .archive .hat:nth-child(even),
+  .search .hat:nth-child(even)  {
+    margin-right: 0;
+  }
+
+  .archive .hat:nth-child(odd),
+  .search .hat:nth-child(odd) {
+    margin-right: 12px;
+  }
+
+  .hat .img_wrap,
+  .archive .hat .img_wrap,
+  .search .hat .img_wrap {
+    height: 86px;
+    margin: 0;
+  }
+
+  .more a:hover,
+  .prev a:hover {
+    width: 242px;
+  }
+
+  .archive .more a,
+  .archive .prev a {
+    font-size: 15px;
+    width: 96px;
+  }
+
+  .archive .more a:hover,
+  .archive .prev a:hover {
+    width: 134px;
+  }
+
+  #global_footer span {
+    display: block;
+    line-height: 1.5;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  #cramerdev {
+    display: block;
+    position: static;
+    margin: 10px auto 0;
+  }
+
+  .page article,
+  .page aside {
+    float: none;
+    margin-bottom: 24px;
+    width: auto;
+  }
+
+  .page article p {
+    font-size: 13px;
+  }
+
+  .join h2 + span,
+  .join .join_methods,
+  .join .box {
+    width: auto;
+  }
+
+  .join h2 + span {
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    margin-top: 12px;
+  }
+
+  .join .join_grid {
+    float: none;
+    margin-bottom: 12px;
+    width: 100%;
+  }
+
+  .join .box {
+    height: auto !important; /* Overides Javascript function that sets .boxes to equal heights */
+    padding: 12px;
+  }
+
+  .join #your_smokin_ios {
+    width: 156px;
+  }
+
+  .join #your_smokin_ios span {
+    margin-top: -86px;
+    width: 156px;
+  }
+
+  .join .join_button,
+  .join #gform_submit_button_1 {
+    width: 180px;
+  }
+
+  .join #form_var,
+  .join #instagram_var {
+    float: none;
+  }
+
+  .join #gform_submit_button_1:hover,
+  .join .join_button:hover {
+    width: 232px;
+  }
+
+  .join .instagram_icon {
+    margin: 20px auto;
+    position: static;
+  }
+
+  .join .box ol li {
+    margin-bottom: 12px;
+  }
+
+  .join .box ol li:first-child {
+    padding-right: 0;
+  }
+
+  .gform_wrapper input[type="text"] {
+    font-size: 16px;
+    width: 174px;
+  }
+
+}
+
+/* Wide Mobile Layout: 480px.
+ * Gutters: 24px.
+ * Outer margins: 22px.
+ * Inherits styles from: Default Layout, Mobile Layout.
+ */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+  body {
+    width: 436px;
+    padding: 50px 22px 48px;
+  }
+
+  #fb_like {
+    display: block;
+  }
+
+  #global_header {
+    height: 201px;
+  }
+
+  nav {
+    margin: 0 0 32px 0;
+  }
+
+  nav ul {
+    margin-top: 0;
+    width: 110px;
+  }
+
+  nav ul:first-child,
+  nav .first {
+    float: left;
+  }
+
+  nav ul:last-child,
+  nav .last {
+    float: right;
+  }
+
+  nav li {
+    display: block;
+    margin: 9px 0;
+  }
+
+  nav .nomobile {
+    display: block;
+  }
+
+  #logo {
+    left: 50%;
+    margin-left: -90px;
+    top: -24px;
+    width: 170px;
+  }
+
+  #logo a {
+    margin-left: 10px;
+    width: 150px;
+  }
+
+  #logo img {
+    background: #fff;
+    border: 5px solid #fff;
+    border-top: 0;
+  }
+
+  #search_form {
+    background: rgba(0, 0, 0, .7);
+    height: 28px;
+    right: -24px;
+    top: -67px;
+    width: 206px;
+  }
+
+  #search_form input {
+    font-size: 16px;
+  }
+
+  #s {
+    margin-right: 5px;
+    outline: 0;
+    padding: 7px 0 5px 7px;
+    width: 150px;
+  }
+
+  #s_button {
+    background-position: 0 50%;
+    height: 28px;
+    padding: 2px 0 0;
+  }
+
+  .callout {
+    height: 61px;
+    position: absolute;
+    width: 182px;
+  }
+
+  .callout:hover {
+    width: 222px;
+  }
+
+  .callout .hold_it {
+    padding: 0;
+    position: absolute;
+    top: 13px;
+  }
+
+  .callout span {
+    display: inline;
+  }
+
+  .callout h3 + span {
+    display: none;
+  }
+
+  #callout_left .hold_it {
+    position: absolute;
+    right: 13px;
+    width: 160px;
+  }
+
+  #callout_right {
+    display: block;
+  }
+
+  #callout_right .hold_it {
+    display: block;
+    left: 15px;
+    width: 100px;
+  }
+
+  #theme_song {
+    left: 125px;
+  }
+
+  #newest,
+  #tweet,
+  .more a,
+  .prev a,
+  .page aside .more a,
+  .single aside .more a {
+    width: 388px;
+  }
+
+  .hat,
+  .archive .hat,
+  .search .hat {
+    width: 78px;
+  }
+
+  .hat:nth-child(odd),
+  .archive .hat:nth-child(even),
+  .archive .hat:nth-child(odd),
+  .search .hat:nth-child(even),
+  .search .hat:nth-child(odd) {
+    margin-right: 12px;
+  }
+
+  .hat:nth-child(4n+1),
+  .archive .hat:nth-child(4n),
+  .search .hat:nth-child(4n) {
+    margin-right: 0;
+  }
+
+  .hat .img_wrap,
+  .archive .hat .img_wrap,
+  .search .hat .img_wrap {
+    height: 78px;
+  }
+
+  .more a:hover,
+  .prev a:hover {
+    width: 426px;
+  }
+
+  .archive .more a,
+  .archive .prev a {
+    font-size: 18px;
+    width: 188px;
+  }
+
+  .archive .more a:hover,
+  .archive .prev a:hover {
+    width: 226px;
+  }
+
+  #global_footer span {
+    padding: 0;
+  }
+
+  .single #featured .hat {
+    float: left;
+  }
+
+  #featured .hat {
+    float: left;
+    margin-right: 0;
+    width: 174px;
+  }
+
+  #featured .hat .img_wrap {
+    height: 174px;
+    margin-bottom: 0;
+  }
+
+  #user_info,
+  #user_social {
+    float: right;
+    margin: 0 0 12px;
+    width: 158px;
+  }
+
+  #user_social a {
+    font-size: 12px;
+  }
+
+  .page aside .more a:hover,
+  .single aside .more a:hover {
+    width: 426px;
+  }
+
+  .single h2 span {
+    display: none;
+  }
+
+  .join .join_button,
+  .join #gform_submit_button_1 {
+    width: 364px;
+  }
+
+  .join #gform_submit_button_1:hover,
+  .join .join_button:hover {
+    width: 415px;
+  }
+
+  .gform_wrapper input[type="text"] {
+    font-size: 16px;
+    width: 358px;
+  }
+
+  .join #your_smokin_ios,
+  .join #your_smokin_ios span {
+    width: 340px;
+  }
+
+  .join #your_smokin_ios span {
+    margin-top: -44px;
+  }
+
+}
+
+/* Print Styles */
+
+@media print {
+  * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a:after { content: " (" attr(href) ")"; }
+  abbr:after { content: " (" attr(title) ")"; }
+  .ir a:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}
+

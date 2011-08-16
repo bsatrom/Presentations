@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSS3 Media Queries</title>
+    <style type="text/css">
+        .box
+        {
+            background-repeat: no-repeat;
+            width: 400px;
+            height: 284px;
+            background-image: url('Images/1.jpg');
+        }
+        
+        @media (min-width: 450px) and (max-width: 500px)
+        {
+            .box
+            {
+                background-image: url('Images/2.jpg');
+                width: 500px;
+                height: 356px;
+            }
+        }
+        
+        @media (min-width: 500px) and (max-width: 600px)
+        {
+            .box
+            {
+                background-image: url('Images/3.jpg');
+                width: 600px;
+                height: 427px;
+            }
+        }
+        
+        @media (min-width: 600px) and (max-width: 700px)
+        {
+            .box
+            {
+                background-image: url('Images/4.jpg');
+                width: 700px;
+                height: 498px;
+            }
+        }
+        
+        @media (min-width: 700px)
+        {
+            .box
+            {
+                background-image: url('Images/5.jpg');
+                width: 800px;
+                height: 574px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    </div>
+</body>
+</html>

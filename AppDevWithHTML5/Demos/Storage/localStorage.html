@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Local Storage Demo</title>
+    <script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.5.2.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <fieldset>
+        <legend>Personal Preferences</legend>
+        What is your name? <input type="text" id="name" /><br />
+        What is your email address? <input type="text" id="email" /><br />
+        What is your favorite color? <input type="text" id="color" /><br />
+        Cats or Dogs? <input type="text" id="catOrDog" /><br />
+        What is the answer to this question? <input type="text" id="freeform" /><br />
+    </fieldset>
+    <input type="button" id="save" value="Save my preferences" />
+    <input type="button" id="clear" value="Clear Preferences" />
+
+    <script type="text/javascript">
+        $(function () {
+            //Check localStorage for existing data
+            
+            //Save to localStorage            
+            
+            //activateSettings            
+            
+            //Clear fields and storage
+            $('#clear').click(function () {
+                window.localStorage.removeItem('name');
+                window.localStorage.removeItem('email');
+                window.localStorage.removeItem('color');
+                window.localStorage.removeItem('catOrDog');
+                window.localStorage.removeItem('freeform');
+
+                $('#name').val('')
+                $('#email').val('')
+                $('#color').val('')
+                $('#catOrDog').val('')
+                $('#freeform').val('')
+
+                $('#clear').val('Done!');
+                deactivateSettings();
+            });
+
+            function deactivateSettings() {
+                $('input').css('background-color', '');
+                $('body').css('color', 'black');
+                $('body').css('background-image', 'none');
+            }
+        });
+    </script>
+</body>
+</html>
