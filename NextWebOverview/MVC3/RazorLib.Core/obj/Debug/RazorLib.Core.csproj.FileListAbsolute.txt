@@ -1,5 +1,0 @@
-C:\Development\RazorLib\src\RazorLib.Core\bin\Debug\RazorLib.Core.dll
-C:\Development\RazorLib\src\RazorLib.Core\bin\Debug\RazorLib.Core.pdb
-C:\Development\RazorLib\src\RazorLib.Core\obj\Debug\ResolveAssemblyReference.cache
-C:\Development\RazorLib\src\RazorLib.Core\obj\Debug\RazorLib.Core.dll
-C:\Development\RazorLib\src\RazorLib.Core\obj\Debug\RazorLib.Core.pdb
