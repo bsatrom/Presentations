@@ -1,0 +1,23 @@
+@model Faceplant.Core.Models.Tag
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Tag</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Sessions</div>
+    <div class="display-field">@(Model.Sessions == null ? "None" : Model.Sessions.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.TagId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

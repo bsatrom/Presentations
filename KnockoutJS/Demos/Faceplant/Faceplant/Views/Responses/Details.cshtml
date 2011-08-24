@@ -1,0 +1,29 @@
+@model Faceplant.Core.Models.Response
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Response</legend>
+
+    <div class="display-label">Session</div>
+    <div class="display-field">@(Model.Session == null ? "None" : Model.Session.Name)</div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Text</div>
+    <div class="display-field">@Model.Text</div>
+
+    <div class="display-label">Date</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Date)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

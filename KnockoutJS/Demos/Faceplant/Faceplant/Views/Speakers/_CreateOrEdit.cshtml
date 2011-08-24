@@ -1,0 +1,49 @@
+@model Faceplant.Core.Models.Speaker
+
+<form data-bind="submit: addSpeaker">
+    <fieldset>
+        <legend>Speaker Info</legend>
+        Name: @Html.TextBoxFor(m => m.Name) <br />
+        Email: @Html.TextBoxFor(m => m.Email) <br />
+        Bio: @Html.TextBoxFor(m => m.Bio) <br />
+        Twitter Handle: @Html.TextBoxFor(m => m.TwitterHandle) <br />
+        State: @Html.TextBoxFor(m => m.State) <br />
+        Photo Url: @Html.TextBoxFor(m => m.PhotoUrl)    
+    </fieldset>
+    <fieldset>
+        <legend>Languages</legend>
+        New item:
+        <input type="text" data-bind="value: languageToAdd" />
+        <button type="submit" data-bind="click: addLanguage">Add</button>
+        <p>Your choices:</p>
+        <select multiple="multiple" width="50" data-bind="options: languages"> </select>
+    </fieldset>
+    <fieldset>
+        <legend>Favorite Topics</legend>
+        New item:
+        <input type="text" data-bind="value: topicToAdd" />
+        <button type="submit" data-bind="click: addTopic">Add</button>
+        <p>Your choices:</p>
+        <select multiple="multiple" width="50" data-bind="options: favoriteTopics"> </select>
+    </fieldset>
+    <input type="submit" value="Create" />
+    <!-- Profile Preview -->
+    <article id="profilePreview">
+        <header>
+            <div><img data-bind="attr: { src: photoUrl, alt: name }" /></div>
+            <div>
+                <h1>
+                    <span data-bind="text: name"></span> :: 
+                    <a data-bind="attr: { href: twitterUrl }">
+                        @@<span data-bind="text: twitterHandle"></span>
+                    </a>
+                </h1>
+           </div>
+           <div class="subhead">Programs in <span data-bind="text: languages"></span></div>
+           <div class="subhead">Loves to talk about <span data-bind="text: favoriteTopics"></span></div>
+        </header>
+        <div id="bio">
+            <span data-bind="text: bio"></span>. He also lives in <span data-bind="text: state"></span>
+        </div>
+    </article>
+</form>

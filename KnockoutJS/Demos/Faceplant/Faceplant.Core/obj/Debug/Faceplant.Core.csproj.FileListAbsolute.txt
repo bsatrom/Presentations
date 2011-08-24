@@ -1,0 +1,10 @@
+C:\Development\Faceplant\Faceplant.Core\bin\Debug\Faceplant.Core.dll
+C:\Development\Faceplant\Faceplant.Core\bin\Debug\Faceplant.Core.pdb
+C:\Development\Faceplant\Faceplant.Core\obj\Debug\ResolveAssemblyReference.cache
+C:\Development\Faceplant\Faceplant.Core\obj\Debug\Faceplant.Core.dll
+C:\Development\Faceplant\Faceplant.Core\obj\Debug\Faceplant.Core.pdb
+C:\Users\brsatrom.NORTHAMERICA\Dropbox\Development\Faceplant\Faceplant.Core\bin\Debug\Faceplant.Core.dll
+C:\Users\brsatrom.NORTHAMERICA\Dropbox\Development\Faceplant\Faceplant.Core\bin\Debug\Faceplant.Core.pdb
+C:\Users\brsatrom.NORTHAMERICA\Dropbox\Development\Faceplant\Faceplant.Core\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\brsatrom.NORTHAMERICA\Dropbox\Development\Faceplant\Faceplant.Core\obj\Debug\Faceplant.Core.dll
+C:\Users\brsatrom.NORTHAMERICA\Dropbox\Development\Faceplant\Faceplant.Core\obj\Debug\Faceplant.Core.pdb

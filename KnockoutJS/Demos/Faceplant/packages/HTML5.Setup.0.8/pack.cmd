@@ -1,0 +1,1 @@
+nuget pack html5.nuspec
