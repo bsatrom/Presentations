@@ -2,6 +2,26 @@
 /// <reference path="../jQuery.tmpl.js" />
 /// <reference path="../knockout-1.2.1.debug.js" />
 
+var bindings = {
+    value: ['name', 'bio', 'twitterHandle', 'state', 'photoUrl', 'languageToAdd', 'email', 'topicToAdd'],
+    text: [{ displayName: 'name' },
+           { displayState: 'state' },
+           { displayBio: 'bio' },
+           { displayTwitterHandle: 'twitterHandle' },
+           { languageList: 'languages' },
+           { topicList: 'topics' },
+           { displayPresentedBefore: 'presentedBefore'}],
+    options: ['languages', 'favoriteTopics'],
+    checked: ['presentedBefore'],
+    click: ['addLanguage', 'addTopic'],
+    custom: {
+        languageToAdd: 'valueUpdate: "afterkeydown"',
+        addLanguage: 'enable: enableAddLanguage',
+        photo: 'attr: {src: photoUrl, alt: name}',
+        twitterUrl: 'attr: {href: twitterUrl}'
+    }
+};
+
 var viewModel = {
     id: '',
     name: ko.observable(''),
@@ -34,7 +54,21 @@ viewModel.addTopic = function () {
         viewModel.topicToAdd('');
     }
 };
+viewModel.addSpeaker = function () {
+    $.ajax({
+        url: "/speakers/create/",
+        type: 'post',
+        data: ko.toJSON(this),
+        contentType: 'application/json',
+        success: function (result) {
+            $('#notice').text(result).show(2000, function () {
+                $('#notice').hide(6000);
+            });
+        }
+    });
+};
 
+ko.unobtrusive.createBindings(bindings);
 ko.applyBindings(viewModel);
 
 $('#profilePreview').hide();

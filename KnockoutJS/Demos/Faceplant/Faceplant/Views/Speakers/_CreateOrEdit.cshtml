@@ -8,12 +8,12 @@
         Bio: @Html.TextBoxFor(m => m.Bio) <br />
         Twitter Handle: @Html.TextBoxFor(m => m.TwitterHandle) <br />
         State: @Html.TextBoxFor(m => m.State) <br />
-        Photo Url: @Html.TextBoxFor(m => m.PhotoUrl)    
+        Photo Url: @Html.TextBoxFor(m => m.PhotoUrl)
     </fieldset>
     <fieldset>
         <legend>Languages</legend>
         New item:
-        <input type="text" data-bind="value: languageToAdd" />
+        <input type="text" id="languageToAdd" />
         <button type="submit" data-bind="click: addLanguage">Add</button>
         <p>Your choices:</p>
         <select multiple="multiple" width="50" data-bind="options: languages"> </select>
