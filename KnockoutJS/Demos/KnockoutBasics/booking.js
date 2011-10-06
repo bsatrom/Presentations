@@ -18,7 +18,6 @@ var viewModel = {
         new seatReservation("Steve"),
         new seatReservation("Bert")
     ]), 
-    
     addSeat: function() {
         this.seats.push(new seatReservation());   
     }

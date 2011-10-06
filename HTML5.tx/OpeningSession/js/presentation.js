@@ -1,0 +1,3 @@
+(function() {
+    $('#presentation').fathom();
+})();

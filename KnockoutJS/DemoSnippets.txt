@@ -1,0 +1,146 @@
+﻿///////////////////////////////
+//[Basics]
+
+///////////////////////////////
+// Add data-bind commands
+data-bind=”text: firstName”
+data-bind=”text: lastName”
+
+///////////////////////////////
+// Add input fields
+<p>First name: <input data-bind="value: firstName" /></p>
+<p>Last name: <input data-bind="value: lastName" /></p>
+
+///////////////////////////////
+// ViewModel properties to observable
+var viewModel = {
+    firstName: ko.observable("Hugo"),
+    lastName: ko.observable("Reyes")
+};
+
+///////////////////////////////
+// ViewModel fullName property
+viewModel.fullName = ko.dependentObservable(function() {
+    return this.firstName() + " " + this.lastName();
+}, viewModel);
+
+
+///////////////////////////////
+// capitalizeLastName Function
+capitalizeLastName: function() {
+    var currentVal = this.lastName();        // <-- Call observable values as functions
+    this.lastName(currentVal.toUpperCase()); // Pass the new value in as a parameter
+}
+
+///////////////////////////////
+// Full Name Field
+<p>Full name: <span data-bind="text: fullName"></span></p>
+
+///////////////////////////////
+// click handler on button
+<button data-bind="click: capitalizeLastName">Go caps</button>
+
+///////////////////////////////
+// [Templating]
+///////////////////////////////
+// Tbody template
+<tbody data-bind="template: 'reservationTemplate'"></tbody>
+
+///////////////////////////////
+// Template block
+<script type="text/x-jquery-tmpl" id="reservationTemplate">
+    {{each seats}}
+        <tr>
+            <td>${name || 'Anonymous'}</td>
+            <td>${meal().mealName}</td>
+            <td>${meal().price}</td>                
+        </tr>
+    {{/each}}
+</script>
+
+///////////////////////////////
+// Add seat button
+<button data-bind="click: addSeat">Reserve another seat</button>
+
+///////////////////////////////
+// Add Seat Function
+, addSeat: function() {
+    this.seats.push(new seatReservation());   
+}
+
+///////////////////////////////
+// Add Date Field to the template
+<td>${new Date}</td>
+
+///////////////////////////////
+// Add foreach to tbody data-bind
+<tbody data-bind="template: {name:'reservationTemplate', foreach: seats}"></tbody>
+
+///////////////////////////////
+// [Knockout and MVC]
+///////////////////////////////
+// Strongly-Typed helpers
+Name: @Html.TextBoxFor(m => m.Name, new { data_bind="value: name" }) <br />
+Email: @Html.TextBoxFor(m => m.Email, new { data_bind = "value: email" }) <br />
+Bio: @Html.TextBoxFor(m => m.Bio, new { data_bind = "value: bio" }) <br />
+Twitter Handle: @Html.TextBoxFor(m => m.TwitterHandle, new { data_bind = "value: twitterHandle" }) <br />
+State: @Html.TextBoxFor(m => m.State, new { data_bind = "value: state" }) <br />
+Photo Url: @Html.TextBoxFor(m => m.PhotoUrl, new { data_bind = "value: photoUrl" })    
+
+///////////////////////////////
+// addSpeaker
+viewModel.addSpeaker = function () {
+    $.ajax({
+        url: "/speakers/create/",
+        type: 'post',
+        data: ko.toJSON(this),
+        contentType: 'application/json',
+        success: function (result) {
+            $('#notice').text(result).show(2000, function () {
+                $('#notice').hide(6000); 
+            });
+        }
+    });
+};
+
+///////////////////////////////
+// addSpeaker form submit
+data-bind="submit: addSpeaker"
+
+//////////////////////////////
+// [Knockout.Unobtrusive]
+
+///////////////////////////////
+// bindigs object
+var bindings = {
+    value: ['name', 'bio', 'twitterHandle', 'state', 'photoUrl', 'languageToAdd', 'email', 'topicToAdd'],
+    text: [{ displayName: 'name' },
+           { displayState: 'state' },
+           { displayBio: 'bio' },
+           { displayTwitterHandle: 'twitterHandle' },
+           { languageList: 'languages' },
+           { topicList: 'topics' }, 
+           { displayPresentedBefore: 'presentedBefore'}],
+    options: ['languages', 'favoriteTopics'],
+    checked: ['presentedBefore'],
+    click: ['addLanguage', 'addTopic'],
+    custom: {
+        languageToAdd: 'valueUpdate: "afterkeydown"',
+        addLanguage: 'enable: enableAddLanguage',
+        photo: 'attr: {src: photoUrl, alt: name}',
+        twitterUrl: 'attr: {href: twitterUrl}'
+    }
+};
+
+///////////////////////////////
+// Modify strongly-typed helpers
+Name: @Html.TextBoxFor(m => m.Name) <br />
+Email: @Html.TextBoxFor(m => m.Email) <br />
+Bio: @Html.TextBoxFor(m => m.Bio) <br />
+Twitter Handle: @Html.TextBoxFor(m => m.TwitterHandle) <br />
+State: @Html.TextBoxFor(m => m.State) <br />
+Photo Url: @Html.TextBoxFor(m => m.PhotoUrl)
+
+///////////////////////////////
+// Cal ko.unobtrusive
+ko.unobtrusive.createBindings(bindings);

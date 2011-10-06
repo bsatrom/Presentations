@@ -12,20 +12,21 @@
             <thead><tr>
                 <th>Passenger name</th><th>Meal</th><th>Surcharge</th><th></th>
             </tr></thead>
-            <tbody data-bind="template: {name:'reservationTemplate', foreach: seats}"></tbody>
+            <tbody data-bind="template: 'reservationTemplate'"></tbody>
         </table>  
         
         <script type="text/x-jquery-tmpl" id="reservationTemplate">
-            <tr>
-                <td>${name || 'Anonymous'}</td>
-                <td>${meal().mealName}</td>
-                <td>${meal().price}</td>
-                <td>${new Date}</td>
-            </tr>
+            {{each seats}}
+                <tr>
+                    <td>${name || 'Anonymous'}</td>
+                    <td>${meal().mealName}</td>
+                    <td>${meal().price}</td>                
+                </tr>
+            {{/each}}
         </script>
         
         <button data-bind="click: addSeat">Reserve another seat</button>
-
+        
         <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js"></script>
         <script src="js/jquery.tmpl.min.js"></script>
         <script src="js/knockout-1.2.1.js"></script>

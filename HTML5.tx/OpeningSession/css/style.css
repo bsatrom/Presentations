@@ -1,0 +1,81 @@
+@font-face{font-family:'FatboyRegular';
+	src:url('fonts/fatboy/fatboy_husky_beta-webfont.eot');
+	src:url('fonts/fatboy/fatboy_husky_beta-webfont.eot?#iefix') 
+	format('embedded-opentype'),url('fonts/fatboy/fatboy_husky_beta-webfont.woff') 
+	format('woff'),url('fonts/fatboy/fatboy_husky_beta-webfont.ttf') 
+	format('truetype'),url('fonts/fatboy/fatboy_husky_beta-webfont.svg#FatboyRegular') 
+	format('svg');font-weight:normal;font-style:normal
+}
+
+@font-face{font-family:'KnockoutHTF29JuniorLiteweigRg';
+	src:url('fonts/jrLiteweight/knockout-htf29-juniorliteweight-webfont.eot');
+	src:url('fonts/jrLiteweight/knockout-htf29-juniorliteweight-webfont.eot?#iefix') 
+	format('embedded-opentype'),url('fonts/jrLiteweight/knockout-htf29-juniorliteweight-webfont.woff') 
+	format('woff'),url('fonts/jrLiteweight/knockout-htf29-juniorliteweight-webfont.ttf') 
+	format('truetype'),url('fonts/jrLiteweight/knockout-htf29-juniorliteweight-webfont.svg#KnockoutHTF29JuniorLiteweigRg') 
+	format('svg');font-weight:normal;font-style:normal
+}
+
+@font-face {
+    font-family: 'HelveticaLTStdLight';
+    src: url('fonts/helvetica/helveticaltstd-light-webfont.eot');
+    src: url('fonts/helvetica/helveticaltstd-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/helvetica/helveticaltstd-light-webfont.woff') format('woff'),
+         url('fonts/helvetica/helveticaltstd-light-webfont.ttf') format('truetype'),
+         url('fonts/helvetica/helveticaltstd-light-webfont.svg#HelveticaLTStdLight') format('svg');
+    font-weight: normal; font-style: normal;
+}
+
+body{
+    font-family:helvetica,arial,clean,sans-serif;    
+    background:#f1fba2;  
+     color:#e7f5a1;  
+     font-size:30px;
+}
+
+.slide{
+    background: url(/images/meat-market.jpg); 
+    width: 1200px;
+    height: 768px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    -moz-box-shadow: 0 0 5px 5px #888;
+    -webkit-box-shadow: 0 0 5px 5px#888;
+    box-shadow: 0 0 5px 5px #888;
+}
+
+.slide img {
+    
+}
+
+article {
+    width: 95%;
+    height: 95%;
+    text-align: center;
+    padding-top: 30%;    
+}
+
+article h1 {
+     font-family:KnockoutHTF29JuniorLiteweigRg,arial,helvetica,clean,sans-serif;
+     font-size:72pt;
+     text-align:center;
+}
+
+h1.small {
+    font-size:54px;
+}
+
+#presentation:first-child h1 {
+    font-size:44px;
+}
+
+article h2 {
+    font-family:KnockoutHTF29JuniorLiteweigRg,arial,helvetica,clean,sans-serif;     
+    font-size:44px;
+}
+
+ul {
+    text-align: left;
+    padding-left: 30%;    
+}
