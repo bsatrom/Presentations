@@ -1,1 +1,1 @@
-console.log 'Hello, RedDirtJS!'
+console.log 'Hello, RedDirtJS! Hope you are having a good time!'
