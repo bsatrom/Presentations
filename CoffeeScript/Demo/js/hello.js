@@ -1,3 +1,3 @@
 (function() {
-  console.log('Hello, RedDirtJS! Hope you are having a good time!');
+  console.log('Hello, RedDirtJS!!!!!');
 }).call(this);
