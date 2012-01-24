@@ -55,5 +55,73 @@
         <div id="long"></div>
         <div id="accuracy"></div>
     </article>    
+    <script type="text/javascript">
+        try {
+            var _creds = "Aobl4homd3pxwBrWnQNuX25Vna6u25EHc-LJcvzIGPldJLQZdsGq6mk57Aq0ft80";
+            var _map = new Microsoft.Maps.Map(document.getElementById("map"), { credentials: _creds });
+
+            if (Modernizr.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    placeLocationOnMap(position.coords.latitude, position.coords.longitude);
+                    setDetails(position);
+                }, errorHandler);
+            } else {
+                showFallback();
+            }
+        } catch (e) {
+            swapImage();
+        }
+
+        function errorHandler(e) {
+            if (e === 1) { // PERMISSION_DENIED
+                showFallback();
+            } else { // POSITION_UNAVAILABLE or TIMEOUT
+                swapImage();
+            }
+        }
+
+        function showFallback() {
+            $('#details').show();
+            $('#geoDetails').hide();
+
+            $('#findMe').click(function () {
+                var address = $('#address').val();
+
+                $.getJSON('http://dev.virtualearth.net/REST/v1/Locations?query=' + address + '&key=' + _creds + '&jsonp=?', function (result) {
+                    if (result.resourceSets[0].estimatedTotal > 0) {
+                        var loc = result.resourceSets[0].resources[0].point.coordinates;
+                        placeLocationOnMap(loc[0], loc[1]);
+                    }
+                    else {
+                        alert("sorry that address cannot be found");
+                    }
+                });
+            });
+        }
+
+        function placeLocationOnMap(lat, long) {
+            var location = new Microsoft.Maps.Location(lat, long);
+            _map.setView({ zoom: 18, center: location });
+
+            // Add a pushpin to the map representing the current location
+            var pin = new Microsoft.Maps.Pushpin(location);
+            _map.entities.push(pin);
+        }
+
+        function setDetails(position) {
+            $('#lat').text('Latitude: ' + position.coords.latitude);
+            $('#long').text('Longitude: ' + position.coords.longitude);
+            $('#accuracy').text('Accuracy: ' + position.coords.accuracy + ' Meters');
+            $('#geoDetails').fadeIn('slow');
+        }
+
+        function swapImage() {
+            $('#map').hide();
+            $('<img>', {
+                src: 'images/fallbackMap.png'
+            }).appendTo('body');
+        }
+</script>
+
 </body>
 </html>

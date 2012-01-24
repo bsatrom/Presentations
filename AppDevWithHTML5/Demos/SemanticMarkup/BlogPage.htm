@@ -6,6 +6,7 @@
     <title>Brandon's HTML5 Blog</title>
     <link href="css/html5reset.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+    <script src="../js/modernizr-2.0.6.min.js" type="text/javascript"></script>
     <script src="../js/jquery-1.5.2.min.js" type="text/javascript"></script>
 </head> 
 <body> 
@@ -63,5 +64,24 @@
             </ul>
         </section>
     </aside>
+    <script type="text/javascript">
+        Modernizr.load({
+            test: Modernizr.borderradius,
+            nope: 'js/jquery.corner.js',
+            callback: function () {
+                $("article").corner();
+                $("figure").corner();
+            }
+        });
+
+        //Pre-Modernizr 2.0
+        //if (!Modernizr.borderradius) {
+        //    $.getScript("js/jquery.corner.js", function () {
+        //        $("article").corner();
+        //    });
+        //}
+</script>
+
+
 </body>
 </html>
