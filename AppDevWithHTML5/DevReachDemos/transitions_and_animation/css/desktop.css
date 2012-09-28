@@ -1,4 +1,4 @@
-w/*  Reset default styles
+/*  Reset default styles
 -------------------------------------------------------*/
 body {
     background-color: #eaeeef;
@@ -49,24 +49,38 @@ p {
 }
 
 img {
+	position: relative;
 	width: 202px;
 	height: 202px;	
+	z-index: 0;
 	
 	-moz-border-radius: 7px;
     -webkit-border-radius: 7px;
-	border-radius: 7px;
+	border-radius: 100px;
 	
 	-moz-box-shadow: 0px 0px 10px #006400;
     -webkit-box-shadow: 0px 0px 10px #006400;
 	box-shadow: 0px 0px 10px 1px #006400;
+	
+    /* Add ease-in-out transition (dr21) */
+	
 }
+
+/* Add Hover Transform for images (dr20) */
+
+
+/* Add Animation Keyframe (dr22) */
+
+
+/* Add animation to class (dr23) */
+
 
 /*  Basic Layout
 -------------------------------------------------------*/
 #banner {
     padding: 20px 20px 0 20px;
     height: 60px;
-    background: #eaeaea url("../../assets/header-bkg.png") repeat-x left bottom;
+    background: #eaeaea url("../../../assets/header-bkg.png") repeat-x left bottom;
     font-family: Tahoma;
     border-bottom: 1px solid #e0e0e0;
     
@@ -123,15 +137,15 @@ img {
 }
 
 #menu li.galleries a {
-    background: url("../../assets/icon-gallery.png") no-repeat 0 50%;
+    background: url("../../../assets/icon-gallery.png") no-repeat 0 50%;
 }
 
 #menu li.tags a {
-    background: url("../../assets/icon-tags.png") no-repeat 0 50%;
+    background: url("../../../assets/icon-tags.png") no-repeat 0 50%;
 }
 
 #menu li.account a {
-    background: url("../../assets/icon-account.png") no-repeat 0 50%;
+    background: url("../../../assets/icon-account.png") no-repeat 0 50%;
 }
 
 #menu li.login {
@@ -211,7 +225,3 @@ ul.thumbnails li:hover span.image-overlay {
    left: 0;
    line-height: normal;
 }
-
-/* Add Tablet View Styles (dr14) */
-
-/* Add Mobile View Styles (dr15) */
