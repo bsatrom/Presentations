@@ -1,4 +1,6 @@
-sayHi = (confName) ->
-	console.log "Hello, CodeMash!"
+sayHi = (name) ->
+	console.log "Hello ctxdnug!"
+	console.log "#{name}!"
 
-sayHi "CodeMash"
+
+sayHi "Dale"

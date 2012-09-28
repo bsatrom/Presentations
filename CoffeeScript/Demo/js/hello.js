@@ -1,10 +1,11 @@
 (function() {
   var sayHi;
 
-  sayHi = function(confName) {
-    return console.log("Hello, CodeMash!");
+  sayHi = function(name) {
+    console.log("Hello ctxdnug!");
+    return console.log("" + name + "!");
   };
 
-  sayHi("CodeMash");
+  sayHi("Dale");
 
 }).call(this);

@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Kendo UI - The HTML5 Developers Sword</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/kendo.common.min.css" rel="stylesheet" />
+	<link href="css/kendo.default.min.css" rel="stylesheet" />
+
+	    <meta charset="utf-8">
+	    <!--<script
+	      src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>-->
+
+	      <script id="twitter-wjs" src="//platform.twitter.com/widgets.js"></script><script src="modernizr-1.7.min.js" type="text/javascript"></script>
+
+	      <script src="slides.js"></script>
+	      <link href="styles.css" rel="stylesheet">
+
+	      <link href="http://cdn.kendostatic.com/2011.3.1129/styles/kendo.common.min.css" rel="stylesheet">
+	      <link href="http://cdn.kendostatic.com/2011.3.1129/styles/kendo.default.min.css" rel="stylesheet">
+
+	      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	      <script src="http://cdn.kendostatic.com/2011.3.1129/js/kendo.all.min.js"></script> 
+
+	      <!--Globalization Cultures-->
+	      <script src="http://cdn.kendostatic.com/2011.3.1129/js/cultures/kendo.culture.en-GB.min.js"></script>
+	      <script src="http://cdn.kendostatic.com/2011.3.1129/js/cultures/kendo.culture.bg-BG.min.js"></script>
+	      <script src="http://cdn.kendostatic.com/2011.3.1129/js/cultures/kendo.culture.ja-JP.min.js"></script>
+	  <style>
+	    /* Your individual styles here, or just use inline styles if that’s
+	       what you want. */
+
+	    .box{
+	    	width: 100%;
+	    	height: 100%;
+	    	display: -webkit-box;
+
+	    	-webkit-box-direction: horizontal;
+	    	box-direction: horizontal;
+
+			-webkit-box-align: center;
+			box-align: center;
+	    }
+
+	    .boxItem{
+	    	-webkit-box-flex: 1;
+			box-flex: 1;	
+
+			text-align: center;		
+			min-height: 200px;
+			margin-right: 10px;	
+	    }
+
+	    .boxItem.orange{
+	    	border: 1px solid #BBB;
+	    	background: #fa6713;
+
+	    	border-radius: 15px;
+	    	box-shadow: 2px 2px 3px #222;
+	    }
+
+	    .boxItem > p:first-child{
+	    	margin-top: 50px;
+	    }
+
+	    .demo{
+	    	font-size: 14px;
+	    	line-height: 16px;
+	    }
+
+	    .demo td, .demo th, .k-calendar td, .k-calendar th{
+	    	border: none;
+	    	vertical-align: inherit;
+	    	font: inherit;
+	    }
+
+	    .demo table{
+	    	margin-top: 0;
+	    }
+
+	    .slides.template-kendo > article {
+	    	background: #fff;
+	    	background: -webkit-gradient(linear, left top, left bottom, from(#494949), to(#222222));
+	    	background: linear-gradient(top left 90deg, #494949 0%, #222222 100%);
+
+	    	color: #EEE;
+	    }
+
+	    .slides.template-kendo h1, .slides.template-kendo h2, .slides.template-kendo h3, .slides.template-kendo h4{
+	    	color:  #fff;
+
+	    	text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
+	    } 
+
+	    .slides.template-kendo article.bigtext h1{
+	    	text-align: center;
+	    	font-size: 82px;
+	    	line-height: 72px;
+	    	margin-top: 225px;
+	    }
+
+	    .slides.template-kendo article.biglogo{
+	    	background: #fa6714 url(img/KendoLogo.png) no-repeat 50% 50%;
+	    }
+
+	    .slides.template-kendo > article:not(.nobackground):not(.biglogo) {
+	      background: #494949;
+	      background: url(img/KendoUI-Figure.png) 100% 600px no-repeat, -webkit-gradient(linear, left top, left bottom, from(#494949), to(#222222));
+	      background: url(img/KendoUI-Figure.png) 100% 600px no-repeat, linear-gradient(top left 90deg, #494949 0%, #222222 100%);
+
+	      background-size: 75px, 100%;    
+	    }
+
+	    .prettyprint.smaller, .prettyprint.smaller > span{
+	    	font-size: 16px;
+	    	line-height: 20px;    	
+	    }
+
+	    .column-2{
+	    	-moz-column-count: 2;
+			-moz-column-gap: 30px;
+	    	-webkit-column-count: 2;
+	    	-webkit-column-gap: 30px;
+	    	column-count: 2;
+	    	column-gap: 30px;
+	    }
+
+	    #mUploadFeatures, #mUploadNoFeatures{
+	    	display: none;
+	    	padding: 15px;
+	    	border: 2px solid green;
+	    }
+
+	  </style><meta name="viewport" content="width=1100,height=750"><meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+
+<div id="impress" class="impress-not-supported">
+
+    <div class="fallback-message">
+        <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+        <p>For the best experience please use the latest <b>Chrome</b> or <b>Safari</b> browser. Firefox 10 and Internet Explorer 10 <i>should</i> also handle it.</p>
+    </div>
+
+    <div id="logo" class="step">
+		<h1>CoffeeScript is for Closers</h1>
+		<h3>Special Pantomime Edition</h3>        
+		<p>
+			<div><img style="margin-left: 400px" src="http://coffeescript.org/documentation/images/logo.png" /></div>
+		</p>
+	</div>
+
+	<div id="logo" class="step" data-y="-1000">
+        <h2>Hi Everyone, I'm Brandon Satrom.</h2>
+        <p>
+			<div><img style="width: 300px; height: 300px; margin-left: 400px; margin-bottom: -250px;" src="https://twimg0-a.akamaihd.net/profile_images/1893810898/bsatrom-house.jpg" /></div>
+		</p>
+    </div>
+
+    <div id="logo" class="step" data-y="-2000">
+        <h2>On Thursday, I delivered an HTML5 Workshop here.</h2>
+    </div>
+
+	<div id="logo" class="step" data-y="-3000">
+        <h2>Yeah, that workshop.</h2>
+        <p>
+			<div><img style="margin-left: 500px; margin-bottom: -50px; -webkit-transform: rotate(-10deg); box-shadow: 0px 0px 10px 5px #67ae17 border-size: 0px;" src="images/photobomg.jpg" /></div>
+		</p>
+    </div>
+
+    <div id="logo" class="step" data-y="-4000">
+        <h2>After eight hours of speaking...</h2>
+        <h3>... I lost my voice.</h3>
+    </div>
+
+    <div id="logo" class="step" data-y="-5000">
+        <h3>(If you were there on Thursday, you might have noticed)</h3>
+    </div>
+
+    <div id="logo" class="step" data-y="-6000">
+        <p><h1 class="orange">So, yeah...</h1></p>
+        <h2>No voice === "I has a sad"</h2>
+    </div>
+
+    <div id="logo" class="step" data-y="-7000">
+        <p><img style="width:100%; height:100%;" src="http://www.reactiongifs.com/wp-content/uploads/2012/01/I_has_a_sad.gif" /></p>
+    </div>
+
+    <div id="logo" class="step" data-y="-8000">
+        <h2>The voice has recovered a bit...</h2>
+    </div>
+
+    <div id="logo" class="step" data-y="-9000">
+        <h3>But I'm quite certain another solid hour of speaking would do me in.</h3>
+    </div>
+
+    <div id="logo" class="step" data-y="-10000">
+        <p><img style="width:100%; height:100%;" src="http://gifs.gifbin.com/092010/1285842337_mrt-cello-fail.gif" /></p>
+    </div>
+
+     <div id="logo" class="step" data-y="-11000">
+        <h1>SOOOOOO.... this is awkward.</h1>
+    </div>
+
+     <div id="logo" class="step" data-y="-12000">
+        <p><img style="width:100%; height:100%;" src="http://www.reactiongifs.com/wp-content/uploads/2011/05/handshakefistpound.gif" /></p>
+    </div>
+
+    <div id="logo" class="step" data-y="-13000">
+        <h2>I won't be delivering this presentation live today...</h2>
+    </div>
+
+    <div id="logo" class="step" data-y="-14000">
+        <p><img style="width:100%; height:100%;" src="http://www.reactiongifs.com/wp-content/uploads/2012/01/I_has_a_sad.gif" /></p>
+    </div>
+
+	<div id="logo" class="step" data-y="-15000">
+        <h2>The <span class="orange">good news</span> is that I did a recording of this session a few months ago...</h2>
+    </div>
+
+    <div id="logo" class="step" data-y="-16000">
+        <p><img style="width:100%; height:100%;" src="http://www.reactiongifs.com/wp-content/uploads/2012/02/very_interesting.gif" /></p>
+    </div>
+
+    <div id="logo" class="step" data-y="-17000">
+        <h3>I'm going to play the video for you in a minute. That's better than <span class="orange">nothing</span>, right?</h3>
+    </div>
+
+	<div id="logo" class="step" data-y="-18000">
+        <h2>It's <strong>40 minutes long</strong>, and we'll do questions after it's over.</h2>
+        <h3>I <span class="orange">think</span> my voice can handle that.</h3>
+    </div>
+
+	<div id="logo" class="step" data-y="-19000">
+        <h1>TL;DR</h1>
+        <h3>(TL;DR is just TL;DR for "summary," by the way...)</h3>
+    </div>
+
+	<div id="logo" class="step" data-y="-20000">
+        <h2>I'm about to play by a previous recoding on this talk...</h2>
+    </div>
+
+    <div id="logo" class="step" data-y="-21000">
+        <h2>If you think that blows, I agree. You should feel free to leave.</h2>
+    </div>
+
+	<div id="logo" class="step" data-y="-22000">
+        <h1>My feelings will <span class="orange">not</span> be hurt.</h1>
+    </div>
+
+    <div id="logo" class="step" data-y="-23000">
+        <h1>Really, I promise.</h1>
+    </div>
+
+	<div id="logo" class="step" data-y="-24000">
+        <p><img style="width:100%; height:100%;" src="http://www.reactiongifs.com/wp-content/uploads/2012/01/I_has_a_sad.gif" /></p>
+    </div>
+
+    <div id="logo" class="step" data-y="-25000">
+        <h1>Oh yeah, one more thing...</h1>
+    </div>
+
+    <div id="logo" class="step" data-y="-26000">
+        <h2>When I recorded this video, I worked for this guy...</h2>
+    </div>
+
+	<div id="logo" class="step" data-y="-27000">
+        <p><img style="width:100%; height:100%;" src="http://www.bruceongames.com/wp-content/uploads/2009/05/steve-ballmer-ceo-of-microsoft.jpg" /></p>
+    </div>
+
+    <div id="logo" class="step" data-y="-28000">
+        <h2>Last month, I left Microsoft to go work on this...</h2>
+    </div>
+
+	<div id="logo" class="step" data-y="-29000">
+        <p><img src="images/KendoLogo.png" /></p>
+    </div>
+
+    <div id="logo" class="step" data-y="-30000">
+        <h1>Just so there's no confusion.</h1>
+    </div>
+
+	<div id="logo" class="step" data-y="-31000">
+        <h1>Now, here we go...</h1>
+    </div>
+
+    <div id="logo" class="step" data-y="-32000">
+        <h1 class="orange">Leave now.</h1>
+    </div>
+
+    <div id="logo" class="step" data-y="-33000">
+        <h1>Or stay.</h1>
+    </div>
+
+    <div id="logo" class="step" data-y="-34000">
+        <h1>Happy St. Patrick's Day</h1>
+    </div>
+
+    <div id="logo" class="step" data-y="-35000">
+        <p><img style="width:100%; height:100%;" src="http://i344.photobucket.com/albums/p354/JoleneSjodin/Absurd/kuslig/leprechaun_bottomsup.gif" /></p>
+    </div>
+
+    <div id="logo" class="step" data-y="-36000">
+        <h1>And Sic 'em Bears!</h1>
+    </div>
+
+    <div id="logo" class="step" data-y="-37000">
+        <h1 class="orange">brandon@kendoui.com</h1>
+        <h2>@brandonsatrom</h2>
+        <h3>http://UserInExperience.com</h3>
+    </div>
+
+<script src="js/impress.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/kendo.all.min.js"></script>
+
+<script>
+	
+	showExamples = function() {
+		$("#impress").hide();
+		$("#slides").show(function() {
+			addEventListeners();
+		});
+	}
+</script>
+</body>
+</html>
