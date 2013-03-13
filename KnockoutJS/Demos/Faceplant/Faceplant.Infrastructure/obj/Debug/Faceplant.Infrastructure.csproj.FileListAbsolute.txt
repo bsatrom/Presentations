@@ -1,5 +1,0 @@
-C:\Development\Faceplant\Faceplant.Infrastructure\bin\Debug\Faceplant.Infrastructure.dll
-C:\Development\Faceplant\Faceplant.Infrastructure\bin\Debug\Faceplant.Infrastructure.pdb
-C:\Development\Faceplant\Faceplant.Infrastructure\obj\Debug\ResolveAssemblyReference.cache
-C:\Development\Faceplant\Faceplant.Infrastructure\obj\Debug\Faceplant.Infrastructure.dll
-C:\Development\Faceplant\Faceplant.Infrastructure\obj\Debug\Faceplant.Infrastructure.pdb

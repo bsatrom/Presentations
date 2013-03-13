@@ -1,4 +1,4 @@
-w/*  Reset default styles
+/*  Reset default styles
 -------------------------------------------------------*/
 body {
     background-color: #eaeeef;
@@ -213,5 +213,94 @@ ul.thumbnails li:hover span.image-overlay {
 }
 
 /* Add Tablet View Styles (dr14) */
+@media screen and (max-width:1024px)
+{
+    body {
+        min-width: 480px;
+        max-width: 800px;
+    }
+    
+    #banner {
+        height: 110px;
+        background: #eaeaea;
+    }
+    
+    #menu li {
+        display: block;
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+    
+    #menu li.tags a,
+    #menu li.galleries a,
+    #menu li.account a {
+        background: none;   
+    }
+    
+    #menu li.login {
+        display: none;
+    }
+    
+    img {
+        width: 500px;
+        height: 375px;
+        align: center;
+    }
+    
+    ul.thumbnails li {
+        width: 515px;
+        height: 390px;
+        line-height: 200px;
+    }
+    
+    ul.thumbnails li span.image-overlay {
+        display:block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        line-height: normal;
+        width: 515px;
+        padding: 5px;
+    }
 
+    ul.thumbnails li {
+        background: #f3f6f7;
+        border-color: #dbe2e5;
+
+        /*CSS3 properties*/
+        border-radius: 7px;
+        -moz-border-radius: 7px;
+        -webkit-border-radius: 7px;
+
+        -moz-box-shadow: 0px 0px 20px 5px #A9A9A9;
+        -webkit-box-shadow: 0px 0px 20px 5px #A9A9A9;
+        box-shadow: 0px 0px 20px 5px #A9A9A9;
+    }
+}
 /* Add Mobile View Styles (dr15) */
+@media screen and (max-width:480px)
+{
+    body {
+        min-width: 120px;
+        max-width: 320px;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    img {
+        width: 250px;
+        height: 187.5px;
+    }
+    
+    ul.thumbnails li {
+        width: 265px;
+        height: 200px;
+        line-height: 200px;
+    }
+    
+    ul.thumbnails li span.image-overlay {
+        width: 265px;
+    }
+}

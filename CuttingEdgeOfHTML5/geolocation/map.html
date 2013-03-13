@@ -1,0 +1,35 @@
+<!DOCTYPE html">
+
+<html>
+<head>
+    <title>Geolocation</title>
+    <link href="http://cdn.kendostatic.com/2012.2.710/styles/kendo.common.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://cdn.kendostatic.com/2012.2.710/styles/kendo.default.min.css" rel="stylesheet" type="text/css" />
+        <link href="http://cdn.kendostatic.com/2012.2.710/styles/kendo.dataviz.min.css" rel="stylesheet" type="text/css" /><link href="http://cdn.kendostatic.com/2012.2.710/styles/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+	<script src="../lib/modernizr.2.6.2.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../lib/jquery-1.8.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0" type="text/javascript"></script>    
+</head>
+<body>
+    <section id="details">
+		<h1>Geolocation Fallback Form</h1>
+        <div id="error"></div>
+		<fieldset>
+            <legend>Please Enter your Address:</legend>
+            Address: <input type="text" id="address" /> <br />
+            <input type="button" id="findMe" value="Find Me" />
+        </fieldset>        
+    </section>
+    <div id="map"></div>
+    <button id="find" class="k-button">Find My Location</button>
+    <article id="geoDetails">
+        <header><h1>Location Details</h1></header>
+        <div id="lat"></div>
+        <div id="long"></div>
+        <div id="accuracy"></div>
+    </article>
+        
+	<script src="js/geolocation.js"></script>
+</body>
+</html>

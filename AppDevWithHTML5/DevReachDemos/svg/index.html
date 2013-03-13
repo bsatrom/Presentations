@@ -12,8 +12,19 @@
 	</head>
 	<body>
 		<!-- Add SVG element (dr10) -->
-		
+		<svg version="1.1" width="500" height="500" id="circle">
+		    <defs>
+		        <radialGradient id="circleGrad">
+		            <stop offset="0%" stop-color="rgb(255, 255, 255)" />
+		            <stop offset="50%" stop-color="rgb(140, 140, 140)" />
+		            <stop offset="100%" stop-color="rgb(55, 55, 55)" />
+		        </radialGradient>
+		    </defs>
 
+		    <ellipse fill="url(#circleGrad)" stroke="#DDD" 
+		      cx="50%" cy="50%" rx="35%" ry="35%" />
+		</svg>
+		
 		<button id="animate" class="k-button">Animate</button>
 		<button id="stop" class="k-button">Stop</button>
 

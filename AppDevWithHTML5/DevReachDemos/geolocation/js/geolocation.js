@@ -3,16 +3,23 @@
 	var mapDiv = document.getElementById("map");
 	var _map = new Microsoft.Maps.Map(mapDiv, { credentials: _creds });
 
+	function displayError(msg) {
+		var errDiv = document.querySelector('#error');
+
+		if (errDiv) {
+			errDiv.innerText = msg;
+		}
+	}
+
 	// Add details and position functions (dr18)
 	
-	function displayError(msg) {
-		$('#error').text(msg);
-	}
-	
+		
 	// Add errorHandler and fallback form (dr17)
+	
 
 	// Add locate function to kick off geolocation (dr16)
-
+	
+		
 	// Add handler for "Find" click (dr19)
 	
 })();

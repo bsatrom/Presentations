@@ -14,3 +14,11 @@ svg {
 }
 
 /* Add styles for SVG border (dr11) */
+svg#circle {
+    background-color: azure;
+}
+
+svg#circle ellipse {
+    stroke-width: 10px;
+    stroke: #aaa;
+} 

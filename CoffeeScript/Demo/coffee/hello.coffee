@@ -1,6 +1,6 @@
 sayHi = (name) ->
-	console.log "Hello ctxdnug!"
+	console.log "Hello JSSummit!"
 	console.log "#{name}!"
 
 
-sayHi "Dale"
+sayHi "Brandon"
