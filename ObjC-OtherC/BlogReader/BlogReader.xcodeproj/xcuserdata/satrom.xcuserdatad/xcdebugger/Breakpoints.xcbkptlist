@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BlogReader/TableViewController.m"
-         timestampString = "384891003.534173"
+         timestampString = "384999394.576458"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "24"
-         endingLineNumber = "24"
+         startingLineNumber = "13"
+         endingLineNumber = "13"
          landmarkName = "-initWithStyle:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BlogReader/TableViewController.m"
-         timestampString = "384891003.534173"
+         timestampString = "385052729.074828"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
          landmarkName = "-parser:didStartElement:namespaceURI:qualifiedName:attributes:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BlogReader/TableViewController.m"
-         timestampString = "384891003.534173"
+         timestampString = "385052729.074828"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "70"
-         endingLineNumber = "70"
+         startingLineNumber = "63"
+         endingLineNumber = "63"
          landmarkName = "-parser:didStartElement:namespaceURI:qualifiedName:attributes:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BlogReader/TableViewController.m"
-         timestampString = "384891062.862177"
+         timestampString = "385052729.074828"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "79"
-         endingLineNumber = "79"
+         startingLineNumber = "72"
+         endingLineNumber = "72"
          landmarkName = "-parser:foundCharacters:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BlogReader/TableViewController.m"
-         timestampString = "384891003.534173"
+         timestampString = "385052729.074828"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "72"
-         endingLineNumber = "72"
+         startingLineNumber = "65"
+         endingLineNumber = "65"
          landmarkName = "-parser:didStartElement:namespaceURI:qualifiedName:attributes:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BlogReader/TableViewController.m"
-         timestampString = "384891003.534173"
+         timestampString = "385052729.074828"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "71"
-         endingLineNumber = "71"
+         startingLineNumber = "64"
+         endingLineNumber = "64"
          landmarkName = "-parser:didStartElement:namespaceURI:qualifiedName:attributes:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BlogReader/TableViewController.m"
-         timestampString = "384891119.904926"
+         timestampString = "385052729.074828"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "89"
-         endingLineNumber = "89"
+         startingLineNumber = "80"
+         endingLineNumber = "80"
          landmarkName = "-parser:didEndElement:namespaceURI:qualifiedName:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,24 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BlogReader/TableViewController.m"
-         timestampString = "384891119.904926"
+         timestampString = "385053072.024718"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "92"
-         endingLineNumber = "92"
-         landmarkName = "-parser:didEndElement:namespaceURI:qualifiedName:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "BlogReader/TableViewController.m"
-         timestampString = "384891119.904926"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "105"
-         endingLineNumber = "105"
+         startingLineNumber = "98"
+         endingLineNumber = "98"
          landmarkName = "-finishedBlogPost:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -125,12 +112,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BlogReader/TableViewController.m"
-         timestampString = "384891119.904926"
+         timestampString = "384999394.576458"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "80"
-         endingLineNumber = "80"
-         landmarkName = "-parser:foundCharacters:"
+         startingLineNumber = "14"
+         endingLineNumber = "14"
+         landmarkName = "-initWithStyle:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -138,25 +125,77 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BlogReader/TableViewController.m"
-         timestampString = "384891119.904926"
+         timestampString = "385052729.074828"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "90"
-         endingLineNumber = "90"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
+         landmarkName = "-parser:didStartElement:namespaceURI:qualifiedName:attributes:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BlogReader/TableViewController.m"
+         timestampString = "385053072.024718"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "130"
+         endingLineNumber = "130"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BlogReader/TableViewController.m"
+         timestampString = "385053072.024718"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "132"
+         endingLineNumber = "132"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BlogReader/TableViewController.m"
+         timestampString = "385053072.024718"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "133"
+         endingLineNumber = "133"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "BlogReader/TableViewController.m"
+         timestampString = "385053072.024718"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "87"
+         endingLineNumber = "87"
          landmarkName = "-parser:didEndElement:namespaceURI:qualifiedName:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "BlogReader/TableViewController.m"
-         timestampString = "384918192.160215"
+         timestampString = "385053072.024718"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "25"
-         endingLineNumber = "25"
-         landmarkName = "-initWithStyle:"
+         startingLineNumber = "89"
+         endingLineNumber = "89"
+         landmarkName = "-parser:didEndElement:namespaceURI:qualifiedName:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
