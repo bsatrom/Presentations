@@ -1,0 +1,61 @@
+<polymer-element name="x-sarcasm" attributes="taunt">
+  <template>
+    <style>
+      @host {
+        :scope div { 
+          display: inline-block;
+          font-size: 2em; 
+          color: red;
+          -webkit-transform: skew(18deg, 0);
+          transition: font-size 2s ease;
+        }
+        
+        :scope:hover {
+          -webkit-animation: fire 1s ease-in-out infinite alternate;
+          color: #000;
+          font-size: 3em;
+          vertical-align: middle;
+          letter-spacing: .2em;
+        }
+        
+        :scope div:hover {
+          -webkit-animation: jiggle 2s ease-in-out infinite alternate 2s;
+        }
+        
+        @-webkit-keyframes jiggle {
+          0% { -webkit-transform: skew(18deg); }
+          100% { -webkit-transform: skew(-18deg); }
+        }
+        
+        @-webkit-keyframes fire {
+          0% {
+            text-shadow: 0 0 20px #fefcc9,
+            10px -10px 30px #feec85,
+            -20px -20px 40px #ffae34,
+            20px -40px 50px #ec760c,
+            -20px -60px 60px #cd4606,
+            0 -80px 70px #973716,
+            10px -90px 80px #451b0e; }
+          100% {
+            text-shadow: 0 0 20px #fefcc9,
+            10px -10px 30px #fefcc9,
+            -20px -20px 40px #feec85,
+            22px -42px 60px #ffae34,
+            -22px -58px 50px #ec760c,
+            0 -82px 80px #cd4606,
+            10px -90px 80px  #973716; }
+        }
+      }
+    </style>
+    <audio src="http://instantrimshot.com/audio/{{taunt}}.mp3" id="file"></audio>
+    <div on-click="playTaunt">
+      <content></content>
+    </div>
+  </template>
+  <script>Polymer('x-sarcasm', {
+    taunt: "cmonson",
+    playTaunt: function() {
+      this.$.file.play();
+    }
+  });</script>
+</polymer-element>s

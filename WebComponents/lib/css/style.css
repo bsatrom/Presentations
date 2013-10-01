@@ -1,0 +1,10 @@
+body {
+  padding: 2em;
+}
+
+#calendar {
+  font-size: 14px;
+  font-weight: 200;
+  line-height: 22px;
+  color: inherit;
+}

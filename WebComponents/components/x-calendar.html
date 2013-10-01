@@ -1,0 +1,22 @@
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<!-- Kendo UI Scripts -->
+<script src="http://cdn.kendostatic.com/2013.2.716/js/kendo.web.min.js"></script>
+
+<polymer-element name="x-calendar" attributes="selected">
+  <link rel="stylesheet" href="http://cdn.kendostatic.com/2013.2.716/styles/kendo.common.min.css">
+  <link rel="stylesheet" href="http://cdn.kendostatic.com/2013.2.716/styles/kendo.default.min.css">
+  
+  <template>
+    <div id="calendar"></div>
+  </template>
+  <script>
+  Polymer('x-calendar', {
+      selected: new Date(),
+      created: function() {
+        $(this.$.calendar).kendoCalendar({
+          value: this.selected
+        });
+      }
+  });
+  </script>
+</polymer-element>
